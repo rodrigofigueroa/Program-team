@@ -11286,6 +11286,7 @@ yargs@^7.0.0:
     which-module "^1.0.0"
     y18n "^3.2.1"
     yargs-parser "^5.0.0"
+<<<<<<< HEAD
 
 yup@^0.28.3:
   version "0.28.3"
@@ -11299,3 +11300,5 @@ yup@^0.28.3:
     property-expr "^2.0.0"
     synchronous-promise "^2.0.10"
     toposort "^2.0.2"
+=======
+>>>>>>> feature/products
