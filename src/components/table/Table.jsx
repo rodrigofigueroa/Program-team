@@ -3,14 +3,16 @@ import "./table.scss";
 import { useEffect } from "react";
 import Modal from "../modal/Modal";
 import Form from "../form/Form";
-import { useDispatch, useSelector } from "react-redux";
-import { EDIT } from "../../store/actions/actions.vars";
+import { useSelector } from "react-redux";
 
 export const Table = props => {
-  const dispatch = useDispatch();
-  const editar = useSelector(state => state.data.editar);
+  const edit = useSelector(state => state.data.edit);
   const { attrs, data, api } = props;
   const [dataTable, setDataTable] = useState(data);
+
+  useEffect(() => {
+    setDataTable(props.data);
+  }, [props.data]);
 
   const deleteItem = id => {
     let newData = [];
@@ -24,36 +26,25 @@ export const Table = props => {
             mode: "cors"
           }
         );
-        if (!response.ok) {
-          const error = await response.text();
-          console.error(error);
-        }
-        const json = await response.json();
+        await response.json();
         data.map((item, index) => {
-          console.log(id, item._id);
           if (String(item._id) === String(id)) {
             delete newData[index];
           }
           return newData;
         });
         setDataTable(newData);
-        console.log(json);
       } catch (error) {
         console.error(error);
       }
     })();
   };
 
-  useEffect(() => {
-    console.log(data);
-    setDataTable(props.data);
-  }, [props.data]);
   return (
     <>
       <div className="row py-2">
         <p className="col-sm-12 col-md-6">Total: {dataTable.length}</p>
         <div className="col-sm-12 col-md-6 ">
-          {/* <button className="btn btn-success">Agregar</button> */}
           <span className="float-right">
             {props.btnActions.map((btn, btnIndex) => {
               return (
@@ -62,14 +53,14 @@ export const Table = props => {
                     idModal={btn.idModal}
                     colorBtn="mx-1 btn btn-success"
                     title={btn.label}
-                    datos={editar}
+                    datas={edit}
                     api={api}
                     catalogo={props.catalogo}
                   >
                     <Form
                       id={btn.idModal}
                       fields={btn.formulario}
-                      datos={editar}
+                      datas={edit}
                     />
                   </Modal>
                 </React.Fragment>
@@ -94,13 +85,13 @@ export const Table = props => {
             </tr>
           </thead>
           <tbody>
-            {dataTable.map((cliente, i) => {
+            {dataTable.map((client, i) => {
               return (
                 <tr key={`datos${i}`}>
                   {Object.keys(attrs).map((attr, index) => {
                     return (
                       attrs[attr] && (
-                        <td key={`data${index}`}>{cliente[attr]}</td>
+                        <td key={`data${index}`}>{client[attr]}</td>
                       )
                     );
                   })}
@@ -108,7 +99,7 @@ export const Table = props => {
                     <span
                       className="text-danger m-1"
                       onClick={() => {
-                        deleteItem(cliente._id);
+                        deleteItem(client._id);
                       }}
                     >
                       <i className="fas fa-trash-alt" />
@@ -117,25 +108,16 @@ export const Table = props => {
                     <Modal
                       idModal={props.btnActions[0].idModal + i}
                       title={<i className="fas fa-edit text-info"></i>}
-                      datos={cliente}
+                      datas={client}
                       api={api}
                       catalogo={props.catalogo}
                     >
                       <Form
                         id={props.btnActions[0].idModal + i}
                         fields={props.btnActions[0].formulario}
-                        datos={cliente}
+                        datas={client}
                       />
                     </Modal>
-
-                    {/* <span
-                      className="text-info m-1"
-                      onClick={() => {
-                        dispatch({ type: EDIT, payload: cliente });
-                      }}
-                    >
-                      <i className="fas fa-edit" />
-                    </span> */}
                   </td>
                 </tr>
               );

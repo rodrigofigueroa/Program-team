@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { editarState } from "./btnActions/editar.reducer";
+import { editState } from "./btnActions/editar.reducer";
 export const dataReducer = combineReducers({
-  editar: editarState
+  edit: editState
 });

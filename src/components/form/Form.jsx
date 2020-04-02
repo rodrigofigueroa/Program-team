@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 export default props => {
-  const { fields = [], datos = {}, id } = props;
-  const [dataForm, setDataForm] = useState(datos);
+  const { fields = [], datas = {}, id } = props;
+  const [dataForm, setDataForm] = useState(datas);
 
   useEffect(() => {
-    setDataForm(datos);
-  }, [datos]);
+    setDataForm(datas);
+  }, [datas]);
+
   return (
     <form id={props.id} autoComplete="off">
       <div className="row">
@@ -17,23 +18,14 @@ export default props => {
               {column.inputs.map((input, i) => {
                 if (input.type === "checkbox")
                   return (
-                    <div
-                      key={`checkbox${i}`}
-                      // className="custom-control custom-checkbox mr-sm-2"
-                    >
+                    <div key={`checkbox${i}`}>
                       <input
                         name={input.name}
                         id={input.name}
-                        // className="custom-control-input"
                         type="checkbox"
                         defaultChecked={dataForm[input.name] || false}
                       />
-                      <label
-                        // className="custom-control-label"
-                        htmlFor={input.name}
-                      >
-                        {input.name}
-                      </label>
+                      <label htmlFor={input.name}>{input.name}</label>
                     </div>
                   );
 
@@ -53,9 +45,6 @@ export default props => {
                     />
                   </div>
                 );
-                {
-                  /* return <input type={input.type} />; */
-                }
               })}
             </div>
           );

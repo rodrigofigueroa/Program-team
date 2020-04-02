@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux";
 import { UPDATE_VISIBLE_COLUMNS } from "../../store/actions/actions.vars";
 
 export const Filter = props => {
-  const { attrs, catalogo } = props;
+  const { attrs, catalogue } = props;
   const dispatch = useDispatch();
   return (
     <div
       className="card p-2"
       style={{ height: "100%", overflowY: "auto", overflowX: "hidden" }}
     >
-      <p className="">Filtro de: {catalogo}</p>
+      <p className="">Filtro de: {catalogue}</p>
 
       {Object.keys(attrs).map((item, index) => {
         return (

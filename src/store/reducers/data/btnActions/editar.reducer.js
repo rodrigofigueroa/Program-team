@@ -2,10 +2,10 @@ import { EDIT } from "../../../actions/actions.vars";
 import { editarAction } from "../../../actions/editar.action";
 
 const initialState = {
-  editar: {}
+  edit: {}
 };
 
-export function editarState(state = initialState, action) {
+export function editState(state = initialState, action) {
   switch (action.type) {
     case EDIT:
       return editarAction(state, action.payload);

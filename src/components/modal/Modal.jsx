@@ -5,9 +5,16 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export default props => {
-  const { children, colorBtn, api, catalogo, datos } = props;
+  const { children, colorBtn, api, catalogo, datas } = props;
   const modalState = useSelector(state => state.ui.modal);
-  const onDelete = () => {};
+
+  useEffect(() => {
+    if (Object.keys(props.datas).length > 1) {
+      setTypeButton(true);
+    } else {
+      setTypeButton(false);
+    }
+  }, [props.datas]);
 
   const onUpdate = () => {
     let form = document.querySelector("form[id=" + props.idModal + "]");
@@ -29,10 +36,9 @@ export default props => {
 
     if (!error) {
       (async () => {
-        alert("no hay error");
         try {
           const response = await fetch(
-            `${api}api/${catalogo}/${datos._id}/update`,
+            `${api}api/${catalogo}/${datas._id}/update`,
             {
               method: "POST",
               mode: "cors",
@@ -46,9 +52,7 @@ export default props => {
             const error = await response.text();
             console.error(error);
           }
-          const json = await response.json();
-          console.log(json);
-          // setResult(json);
+          await response.json();
         } catch (error) {
           console.error(error);
         }
@@ -75,8 +79,8 @@ export default props => {
     }
 
     if (!error) {
-      const catalogoLength = String(catalogo).length;
-      const splidseado = catalogo.slice(0, catalogoLength - 1);
+      const catalogueLength = String(catalogo).length;
+      const splidseado = catalogo.slice(0, catalogueLength - 1);
       data.id =
         splidseado +
         Math.random()
@@ -97,9 +101,6 @@ export default props => {
             const error = await response.text();
             console.error(error);
           }
-          const json = await response.json();
-          console.log(json);
-          // setResult(json);
         } catch (error) {
           console.error(error);
         }
@@ -110,7 +111,7 @@ export default props => {
   let toggleModal = () => null;
   const [typeButton, setTypeButton] = useState(false);
   useEffect(() => {
-    toggleModal = event => {
+    toggleModal = () => {
       let modal = document.getElementById("modal" + props.idModal);
       if (modal.classList.value === "modal fade show") {
         modal.classList.remove("show");
@@ -122,14 +123,6 @@ export default props => {
     };
   });
 
-  useEffect(() => {
-    if (Object.keys(props.datos).length > 1) {
-      setTypeButton(true);
-    } else {
-      setTypeButton(false);
-    }
-  }, [props.datos]);
-
   return (
     <>
       <span className={colorBtn} onClick={e => toggleModal(e)}>
@@ -137,7 +130,6 @@ export default props => {
       </span>
 
       <div
-        // style={{maxHeight:calc(100% - )}}
         className={
           modalState["open" + props.idModal] ? "modal fade show" : "modal fade"
         }

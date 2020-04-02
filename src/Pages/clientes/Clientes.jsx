@@ -9,13 +9,13 @@ export default props => {
   const attrs = useSelector(state => state.ui.client);
   const [data, setData] = useState([]);
   const [inputFields, setInputFields] = useState([]);
-  const editar = useSelector(state => state.data.editar);
+  const edit = useSelector(state => state.data.edit);
   const btnActions = [
     {
       idModal: "addCliente",
       label: "agregar cliente",
       formulario: inputFields,
-      datos: editar
+      datos: edit
     },
     { idModal: "addProducto", label: "agregar producto", formulario: [] }
   ];
@@ -108,7 +108,7 @@ export default props => {
       </div>
       <div className="row">
         <div className="col-sm-12 col-md-2">
-          <Filter attrs={attrs} catalogo="Clientes" />
+          <Filter attrs={attrs} catalogue="Clientes" />
         </div>
         <div className="col-sm-12 col-md-10">
           <Table
