@@ -94,7 +94,7 @@ export default props => {
           const response = await fetch(`${api}api/${catalogo}/new`, {
             method: "POST",
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
             },
             mode: "cors",
             body: JSON.stringify(data)

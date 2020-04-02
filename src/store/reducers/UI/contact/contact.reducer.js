@@ -1,0 +1,22 @@
+import { updateVisibleContact } from "../../../actions/contact.action";
+import { UPDATE_VISIBLE_CONTACT } from "../../../actions/actions.vars";
+
+const initialState = {
+  id: true,
+  cliente: true,
+  proveedor: true,
+  nombre: true,
+  puesto: true,
+  email: true,
+  telefono: false,
+  celular: false,
+  f_nacimiento: false
+};
+export function contactState(state = initialState, action) {
+  switch (action.type) {
+    case UPDATE_VISIBLE_CONTACT:
+      return updateVisibleContact(state, action.payload);
+    default:
+      return state;
+  }
+}
