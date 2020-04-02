@@ -43,9 +43,10 @@ export default props => {
               method: "POST",
               mode: "cors",
               headers: {
-                "Content-Type": "application/json"
+                "Content-Type":
+                  "application/x-www-form-urlencoded;charset=UTF-8"
               },
-              body: JSON.stringify(data)
+              body: data
             }
           );
           if (!response.ok) {
@@ -126,7 +127,7 @@ export default props => {
   return (
     <>
       <span className={colorBtn} onClick={e => toggleModal(e)}>
-        {props.title}
+        {props.btnLabel}
       </span>
 
       <div
@@ -146,7 +147,7 @@ export default props => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
+                {String(props.catalogo).toUpperCase()}
               </h5>
               <button
                 type="button"

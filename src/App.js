@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.sass";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { root } from "./store/reducers/root.reducer";
@@ -7,19 +6,20 @@ import { Switch, Route } from "react-router-dom";
 import Client from "./Pages/clients/Client";
 import Products from "./Pages/products/Products";
 import Providers from "./Pages/providers/Providers";
+import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   const store = createStore(root);
   return (
     <Provider store={store}>
       <Switch>
         <Route path="/proveedores">
-          <Providers /> ;
+          <Providers />
         </Route>
         <Route path="/productos">
-          <Products /> ;
+          <Products />
         </Route>
         <Route path="/clientes">
-          <Client /> ;
+          <Client />
         </Route>
       </Switch>
     </Provider>
