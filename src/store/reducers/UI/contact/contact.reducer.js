@@ -1,4 +1,4 @@
-import { updateVisibleContact } from "../../../actions/contact.action";
+import { updateVisibleColumns } from "../../../actions/table.action";
 import { UPDATE_VISIBLE_CONTACT } from "../../../actions/actions.vars";
 
 const initialState = {
@@ -15,7 +15,7 @@ const initialState = {
 export function contactState(state = initialState, action) {
   switch (action.type) {
     case UPDATE_VISIBLE_CONTACT:
-      return updateVisibleContact(state, action.payload);
+      return updateVisibleColumns(state, action.payload);
     default:
       return state;
   }
