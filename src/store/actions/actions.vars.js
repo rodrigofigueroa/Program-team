@@ -1,1 +1,3 @@
 export const UPDATE_VISIBLE_COLUMNS = "UPDATE_VISIBLE_COLUMNS";
+export const TOGGLE_MODAL = "TOGGLE_MODAL";
+export const EDIT = "EDIT";

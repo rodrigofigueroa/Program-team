@@ -1,21 +1,27 @@
 import React from "react";
-import "./attrTable.scss";
 import { useDispatch } from "react-redux";
 import { UPDATE_VISIBLE_COLUMNS } from "../../store/actions/actions.vars";
 
-export const AttrTable = props => {
-  const { attrs } = props;
+export const Filter = props => {
+  const { attrs, catalogo } = props;
   const dispatch = useDispatch();
   return (
-    <div className="atributosClientes">
-      <p className="instruction">
-        Seleccione que atributos apareceran en la tabla
-      </p>
+    <div
+      className="card p-2"
+      style={{ height: "100%", overflowY: "auto", overflowX: "hidden" }}
+    >
+      <p className="">Filtro de: {catalogo}</p>
 
       {Object.keys(attrs).map((item, index) => {
         return (
-          <div key={`keyItemList${index}`} className="atributosClientes__items">
+          <div
+            key={`keyItemList${index}`}
+            className="custom-control custom-checkbox mr-sm-2"
+          >
             <input
+              name={item}
+              id={item}
+              className="custom-control-input"
               type="checkbox"
               checked={attrs[item]}
               onChange={() => {
@@ -25,7 +31,9 @@ export const AttrTable = props => {
                 });
               }}
             />
-            <p>{item}</p>
+            <label htmlFor={item} className="custom-control-label">
+              {item}
+            </label>
           </div>
         );
       })}
