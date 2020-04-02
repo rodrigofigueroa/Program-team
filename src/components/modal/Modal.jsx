@@ -81,10 +81,9 @@ export default props => {
     }
 
     if (!error) {
-      const catalogueLength = String(catalogo).length;
-      const splidseado = catalogo.slice(0, catalogueLength - 1);
+      
       data.id =
-        splidseado +
+        catalogo +
         Math.random()
           .toString(32)
           .slice(2);
