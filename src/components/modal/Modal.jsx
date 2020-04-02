@@ -7,6 +7,7 @@ import { useState } from "react";
 export default props => {
   const { children, colorBtn, api, catalogo, datas } = props;
   const modalState = useSelector(state => state.ui.modal);
+  const [typeButton, setTypeButton] = useState(false);
 
   useEffect(() => {
     if (Object.keys(props.datas).length > 1) {
@@ -109,20 +110,16 @@ export default props => {
     }
   };
 
-  let toggleModal = () => null;
-  const [typeButton, setTypeButton] = useState(false);
-  useEffect(() => {
-    toggleModal = () => {
-      let modal = document.getElementById("modal" + props.idModal);
-      if (modal.classList.value === "modal fade show") {
-        modal.classList.remove("show");
-        modal.style.display = "none";
-      } else if (modal.classList.value === "modal fade") {
-        modal.classList.add("show");
-        modal.style.display = "block";
-      }
-    };
-  });
+  const toggleModal = () => {
+    let modal = document.getElementById("modal" + props.idModal);
+    if (modal.classList.value === "modal fade show") {
+      modal.classList.remove("show");
+      modal.style.display = "none";
+    } else if (modal.classList.value === "modal fade") {
+      modal.classList.add("show");
+      modal.style.display = "block";
+    }
+  };
 
   return (
     <>
