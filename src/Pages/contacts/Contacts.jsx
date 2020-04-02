@@ -1,13 +1,11 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import Header from "../../components/header/Header";
 import { Filter } from "../../components/filter/Filter";
 import { Table } from "../../components/table/Table";
-import { useSelector } from "react-redux";
-
-import Header from "../../components/header/Header";
-import { UPDATE_VISIBLE_COLUMNS } from "../../store/actions/actions.vars";
-
+import { UPDATE_VISIBLE_CONTACT } from "../../store/actions/actions.vars";
 export default props => {
-  const attrs = useSelector(state => state.ui.client);
+  const attrs = useSelector(state => state.ui.contact);
   const [search, setSearch] = useState("");
   const [searchAttr, setSearchAttr] = useState("_id");
   return (
@@ -28,7 +26,7 @@ export default props => {
           <Filter
             attrs={attrs}
             catalogue="Clientes"
-            type={UPDATE_VISIBLE_COLUMNS}
+            type={UPDATE_VISIBLE_CONTACT}
           />
         </div>
         <div className="col-sm-12 col-md-10">
@@ -36,8 +34,8 @@ export default props => {
             searchAttr={searchAttr}
             search={search}
             id={"tableClients"}
-            api={"https://kapi-clientes.now.sh/"}
-            catalogo="clientes"
+            api={"https://kapi-contactos-clientes-proveedores.now.sh/"}
+            catalogo="contactos_clientes_proveedores"
             attrs={attrs}
           />
         </div>

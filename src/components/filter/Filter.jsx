@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { UPDATE_VISIBLE_COLUMNS } from "../../store/actions/actions.vars";
 
 export const Filter = props => {
-  const { attrs, catalogue } = props;
+  const { attrs, catalogue, type } = props;
   const dispatch = useDispatch();
   return (
     <div
@@ -26,7 +26,7 @@ export const Filter = props => {
               checked={attrs[item]}
               onChange={() => {
                 dispatch({
-                  type: UPDATE_VISIBLE_COLUMNS,
+                  type,
                   payload: { state: (attrs[item] = !attrs[item]) }
                 });
               }}
