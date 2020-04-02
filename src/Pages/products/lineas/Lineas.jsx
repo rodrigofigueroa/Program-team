@@ -1,12 +1,12 @@
-import React, {useState} from "react";
-import { Filter } from "../../components/filter/Filter";
-import { Table } from "../../components/table/Table";
+import React,{useState} from 'react';
+import { Filter } from "../../../components/filter/Filter";
+import { Table } from "../../../components/table/Table";
 import { useSelector } from "react-redux";
 
-import Header from "../../components/header/Header";
+import Header from "../../../components/header/Header";
 
-export default props => {  
-  const attrs = useSelector(state => state.ui.products);
+export default props  => {
+    const attrs = useSelector(state => state.ui.lineas);
   const [search, setSearch] = useState("");
   const [searchAttr, setSearchAttr] = useState("_id");
   return (
@@ -14,7 +14,7 @@ export default props => {
       <div className="row">
         <div className="col-12">
           <Header
-            catalogo="Productos"
+            catalogo="Lineas"
             setSearchAttr={setSearchAttr}
             attrs={attrs}
             setSearch={setSearch}
@@ -31,12 +31,12 @@ export default props => {
             searchAttr={searchAttr}
             search={search}
             id={"tableClients"}
-            api={"https://kapi-productos.now.sh/"}
-            catalogo="productos"
+            api={"https://kapi-lineas.now.sh/"}
+            catalogo="lineas"
             attrs={attrs}
           />
         </div>
       </div>
     </div>
   );
-};
+}
