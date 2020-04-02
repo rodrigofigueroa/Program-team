@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.sass";
-import Products from "./components/Products";
+
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { root } from "./store/reducers/root.reducer";

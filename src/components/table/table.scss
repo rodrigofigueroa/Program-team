@@ -1,0 +1,17 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css");
+.headersTable {
+  display: flex;
+  width: auto;
+}
+
+.headerItem {
+  width: 1000px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.table {
+  max-height: 100%;
+  overflow: auto;
+}
