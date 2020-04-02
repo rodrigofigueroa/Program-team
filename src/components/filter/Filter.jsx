@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { UPDATE_VISIBLE_COLUMNS } from "../../store/actions/actions.vars";
 
 export const Filter = props => {
   const { attrs, catalogue, type } = props;
