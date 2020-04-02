@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { useEffect } from "react";
 import { useState } from "react";
@@ -7,11 +7,10 @@ import { useState } from "react";
 export default props => {
   const { children, colorBtn, api, catalogo, datos } = props;
   const modalState = useSelector(state => state.ui.modal);
-
   const onDelete = () => {};
 
   const onUpdate = () => {
-    let form = document.querySelector("form");
+    let form = document.querySelector("form[id=" + props.idModal + "]");
     let inputs = form.querySelectorAll("input");
     let data = {};
     let error = false;
@@ -36,7 +35,10 @@ export default props => {
             `${api}api/${catalogo}/${datos._id}/update`,
             {
               method: "POST",
-              mode: "no-cors",
+              mode: "cors",
+              headers: {
+                "Content-Type": "application/json"
+              },
               body: JSON.stringify(data)
             }
           );
@@ -80,7 +82,6 @@ export default props => {
         Math.random()
           .toString(32)
           .slice(2);
-      debugger;
       (async () => {
         alert("no hay error");
         try {
@@ -131,13 +132,9 @@ export default props => {
 
   return (
     <>
-      <button
-        type="button"
-        className={`btn ${colorBtn} mx-1`}
-        onClick={e => toggleModal(e)}
-      >
+      <span className={colorBtn} onClick={e => toggleModal(e)}>
         {props.title}
-      </button>
+      </span>
 
       <div
         // style={{maxHeight:calc(100% - )}}
@@ -164,7 +161,9 @@ export default props => {
                 className="close"
                 data-dismiss="modal"
                 aria-label="Close"
-                onClick={e => toggleModal(e)}
+                onClick={e => {
+                  toggleModal(e);
+                }}
               >
                 <span aria-hidden="true">&times;</span>
               </button>

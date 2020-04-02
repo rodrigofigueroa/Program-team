@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./table.scss";
 import { useEffect } from "react";
 import Modal from "../modal/Modal";
@@ -10,13 +10,48 @@ export const Table = props => {
   const dispatch = useDispatch();
   const editar = useSelector(state => state.data.editar);
   const { attrs, data, api } = props;
+  const [dataTable, setDataTable] = useState(data);
+
+  const deleteItem = id => {
+    let newData = [];
+    dataTable.map(datos => newData.push(datos));
+    (async () => {
+      try {
+        const response = await fetch(
+          "https://kapi-clientes.now.sh/api/clientes/" + id + "/remove",
+          {
+            method: "POST",
+            mode: "cors"
+          }
+        );
+        if (!response.ok) {
+          const error = await response.text();
+          console.error(error);
+        }
+        const json = await response.json();
+        data.map((item, index) => {
+          console.log(id, item._id);
+          if (String(item._id) === String(id)) {
+            delete newData[index];
+          }
+          return newData;
+        });
+        setDataTable(newData);
+        console.log(json);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  };
+
   useEffect(() => {
-    console.log(editar);
-  }, [editar]);
+    console.log(data);
+    setDataTable(props.data);
+  }, [props.data]);
   return (
     <>
       <div className="row py-2">
-        <p className="col-sm-12 col-md-6">Total: {data.length}</p>
+        <p className="col-sm-12 col-md-6">Total: {dataTable.length}</p>
         <div className="col-sm-12 col-md-6 ">
           {/* <button className="btn btn-success">Agregar</button> */}
           <span className="float-right">
@@ -25,13 +60,17 @@ export const Table = props => {
                 <React.Fragment key={`checkbox${btnIndex}`}>
                   <Modal
                     idModal={btn.idModal}
-                    colorBtn="btn-success"
+                    colorBtn="mx-1 btn btn-success"
                     title={btn.label}
                     datos={editar}
                     api={api}
                     catalogo={props.catalogo}
                   >
-                    <Form fields={btn.formulario} datos={editar} />
+                    <Form
+                      id={btn.idModal}
+                      fields={btn.formulario}
+                      datos={editar}
+                    />
                   </Modal>
                 </React.Fragment>
               );
@@ -55,28 +94,48 @@ export const Table = props => {
             </tr>
           </thead>
           <tbody>
-            {data.map((cliente, i) => {
+            {dataTable.map((cliente, i) => {
               return (
                 <tr key={`datos${i}`}>
                   {Object.keys(attrs).map((attr, index) => {
                     return (
-                      <td key={`data${index}`}>
-                        {attrs[attr] && cliente[attr]}
-                      </td>
+                      attrs[attr] && (
+                        <td key={`data${index}`}>{cliente[attr]}</td>
+                      )
                     );
                   })}
                   <td>
-                    <span className="text-danger m-1" onClick={() => {}}>
+                    <span
+                      className="text-danger m-1"
+                      onClick={() => {
+                        deleteItem(cliente._id);
+                      }}
+                    >
                       <i className="fas fa-trash-alt" />
                     </span>
-                    <span
+
+                    <Modal
+                      idModal={props.btnActions[0].idModal + i}
+                      title={<i className="fas fa-edit text-info"></i>}
+                      datos={cliente}
+                      api={api}
+                      catalogo={props.catalogo}
+                    >
+                      <Form
+                        id={props.btnActions[0].idModal + i}
+                        fields={props.btnActions[0].formulario}
+                        datos={cliente}
+                      />
+                    </Modal>
+
+                    {/* <span
                       className="text-info m-1"
                       onClick={() => {
                         dispatch({ type: EDIT, payload: cliente });
                       }}
                     >
                       <i className="fas fa-edit" />
-                    </span>
+                    </span> */}
                   </td>
                 </tr>
               );

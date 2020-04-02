@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 export default props => {
-  const { fields = [], datos = {} } = props;
+  const { fields = [], datos = {}, id } = props;
+  const [dataForm, setDataForm] = useState(datos);
 
-  useEffect(() => {}, [props.datos]);
+  useEffect(() => {
+    setDataForm(datos);
+  }, [datos]);
   return (
-    <form autoComplete="off">
+    <form id={props.id} autoComplete="off">
       <div className="row">
         {fields.map((column, index) => {
           return (
@@ -23,7 +26,7 @@ export default props => {
                         id={input.name}
                         // className="custom-control-input"
                         type="checkbox"
-                        // defaultChecked={datos[input.name] || false}
+                        defaultChecked={dataForm[input.name] || false}
                       />
                       <label
                         // className="custom-control-label"
@@ -36,11 +39,11 @@ export default props => {
 
                 return input.name == "id" || input.name == "_id" ? null : (
                   <div className="form-group" key={`input${i}`}>
-                    <label htmlFor="exampleInputEmail1">{input.name}</label>
+                    <label htmlFor={input.name}>{input.name}</label>
                     <input
-                      id={input.name}
+                      id={id + input.name}
                       name={input.name}
-                      defaultValue={datos[input.name] || ""}
+                      defaultValue={dataForm[input.name] || ""}
                       autoComplete="off"
                       type={input.type}
                       placeholder={input.placeholder}

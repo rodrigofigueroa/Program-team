@@ -21,7 +21,7 @@ export default props => {
   ];
   useEffect(() => {
     try {
-      const response = fetch("api/clientes/", {
+      const response = fetch("https://kapi-clientes.now.sh/api/clientes/", {
         method: "GET",
         mode: "cors"
         //body: JSON.stringify(data)
@@ -31,7 +31,7 @@ export default props => {
       console.log(error);
     }
 
-    fetch("api/clientes/docs")
+    fetch("https://kapi-clientes.now.sh/api/clientes/docs")
       .then(response => response.json())
       .then(response => {
         let newFields = [

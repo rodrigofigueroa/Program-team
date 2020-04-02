@@ -47,7 +47,8 @@ const initialTableState = {
   coloniacomextrecep: false,
   residenciafiscal: false,
   numregidtrib: false,
-  complementoexterior: false
+  complementoexterior: false,
+  actions: true
 };
 
 export const clientState = (state = initialTableState, action) => {
