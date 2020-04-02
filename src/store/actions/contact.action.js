@@ -1,4 +1,4 @@
-export const updateVisibleColumns = (state, payload) => {
+export const updateVisibleContact = (state, payload) => {
   const stateP = payload.state;
   return {
     ...state,
