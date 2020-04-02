@@ -29,7 +29,7 @@ export default props => {
                     </div>
                   );
 
-                return input.name == "id" || input.name == "_id" ? null : (
+                return input.name === "id" || input.name === "_id" ? null : (
                   <div className="form-group" key={`input${i}`}>
                     <label htmlFor={input.name}>{input.name}</label>
                     <input
