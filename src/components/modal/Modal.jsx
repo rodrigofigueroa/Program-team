@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { useEffect } from "react";
 import { useState } from "react";
@@ -24,11 +24,11 @@ export default props => {
 
     for (const input of inputs) {
       data[input.name] = input.value;
-      if (input.required && input.validity.valueMissing == true) {
+      if (input.required && input.validity.valueMissing === true) {
         form.classList.add("was-validated");
         error = true;
       } else {
-        if (input.type == "checkbox") {
+        if (input.type === "checkbox") {
           data[input.name] = input.checked;
         }
       }
@@ -69,11 +69,11 @@ export default props => {
 
     for (const input of inputs) {
       data[input.name] = input.value;
-      if (input.required && input.validity.valueMissing == true) {
+      if (input.required && input.validity.valueMissing === true) {
         form.classList.add("was-validated");
         error = true;
       } else {
-        if (input.type == "checkbox") {
+        if (input.type === "checkbox") {
           data[input.name] = input.checked;
         }
       }
