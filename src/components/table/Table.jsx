@@ -12,6 +12,23 @@ export const Table = props => {
   const [dataTable, setDataTable] = useState([]);
 
   useEffect(() => {
+    loadTableFormApi(api, props.catalogo);
+  }, []);
+
+  useEffect(() => {
+    if (props.search == "") {
+      loadTableFormApi(api, props.catalogo);
+    }
+    let auxArr = [];
+    dataTable.map(dataSet => {
+      if (String(dataSet[props.searchAttr]) == String(props.search)) {
+        auxArr.push(dataSet);
+      }
+      setDataTable(auxArr);
+    });
+  }, [props.search]);
+
+  useEffect(() => {
     fetch(`${api}api/${props.catalogo}/docs`)
       .then(response => response.json())
       .then(response => {
@@ -79,19 +96,6 @@ export const Table = props => {
       .catch(error => console.error(error));
   }, []);
 
-  useEffect(() => {
-    if (props.search == "") {
-      loadTableFormApi(api, props.catalogo);
-    }
-    let auxArr = [];
-    dataTable.map(dataSet => {
-      if (String(dataSet[props.searchAttr]) == String(props.search)) {
-        auxArr.push(dataSet);
-      }
-      setDataTable(auxArr);
-    });
-  }, [props.search]);
-
   const loadTableFormApi = (api, catalogo) => {
     try {
       const response = fetch(`${api}api/${catalogo}`, {
@@ -106,10 +110,6 @@ export const Table = props => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    loadTableFormApi(api, props.catalogo);
-  }, []);
 
   const deleteItem = id => {
     let newData = [];
