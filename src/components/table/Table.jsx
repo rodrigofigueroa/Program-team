@@ -13,20 +13,21 @@ export const Table = props => {
 
   useEffect(() => {
     loadTableFormApi(api, props.catalogo);
-  }, []);
+  }, [props.catalogo, api]);
 
   useEffect(() => {
-    if (props.search == "") {
+    if (props.search === "") {
       loadTableFormApi(api, props.catalogo);
     }
     let auxArr = [];
     dataTable.map(dataSet => {
-      if (String(dataSet[props.searchAttr]) == String(props.search)) {
+      if (String(dataSet[props.searchAttr]) === String(props.search)) {
         auxArr.push(dataSet);
       }
       setDataTable(auxArr);
+      return auxArr;
     });
-  }, [props.search]);
+  }, [props.search, props.catalogo, api, props.searchAttr]);
 
   useEffect(() => {
     fetch(`${api}api/${props.catalogo}/docs`)
@@ -94,7 +95,7 @@ export const Table = props => {
         setInputFields(fields);
       })
       .catch(error => console.error(error));
-  }, []);
+  }, [api, props.catalogo]);
 
   const loadTableFormApi = (api, catalogo) => {
     try {

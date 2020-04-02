@@ -6,7 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import Client from "./Pages/clients/Client";
 import Products from "./Pages/products/Products";
 import Providers from "./Pages/providers/Providers";
-import { BrowserRouter as Router } from "react-router-dom";
+
 function App() {
   const store = createStore(root);
   return (
