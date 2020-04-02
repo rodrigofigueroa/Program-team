@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./table.scss";
 import { useEffect } from "react";
 import Modal from "../modal/Modal";
 import Form from "../form/Form";
