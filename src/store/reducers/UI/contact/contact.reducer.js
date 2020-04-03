@@ -1,5 +1,5 @@
-import { UPDATE_VISIBLE_CONTACT } from "../../../actions/actions.vars";
 import { updateVisibleColumns } from "../../../actions/table.action";
+import { UPDATE_VISIBLE_CONTACT } from "../../../actions/actions.vars";
 
 const initialState = {
   _id: true,

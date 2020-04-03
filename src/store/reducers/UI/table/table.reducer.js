@@ -1,5 +1,5 @@
-import { UPDATE_VISIBLE_COLUMNS } from "../../../actions/actions.vars";
 import { updateVisibleColumns } from "../../../actions/table.action";
+import { UPDATE_VISIBLE_COLUMNS } from "../../../actions/actions.vars";
 
 const initialTableState = {
   _id: true,
@@ -55,7 +55,7 @@ const initialTableState = {
 export const clientState = (state = initialTableState, action) => {
   switch (action.type) {
     case UPDATE_VISIBLE_COLUMNS:
-      return updateVisibleColumns(state, action);
+      return updateVisibleColumns(state, action.payload);
     default:
       return state;
   }

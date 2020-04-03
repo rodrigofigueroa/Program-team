@@ -6,21 +6,25 @@ import { Switch, Route } from "react-router-dom";
 import Client from "./Pages/clients/Client";
 import Products from "./Pages/products/Products";
 import Providers from "./Pages/providers/Providers";
-import Contacts from "./Pages/contacts/Contacts";
+import Kits from './Pages/kits/Kits';
+import Contacts from './Pages/contacts/Contacts';
 
 function App() {
   const store = createStore(root);
   return (
     <Provider store={store}>
       <Switch>
-        <Route path="/proveedores">
-          <Providers />
-        </Route>
         <Route path="/productos">
           <Products />
         </Route>
         <Route path="/clientes">
           <Client />
+        </Route>
+        <Route path="/proveedores">
+          <Providers />
+        </Route>
+        <Route path="/kits">
+          <Kits />
         </Route>
         <Route path="/contactos">
           <Contacts />

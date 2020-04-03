@@ -21,7 +21,7 @@ export default props => {
                     <div key={`checkbox${i}`}>
                       <input
                         name={input.name}
-                        id={input.name}
+                        id={id+input.name}
                         type="checkbox"
                         defaultChecked={dataForm[input.name] || false}
                       />
