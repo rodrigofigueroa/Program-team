@@ -2,12 +2,12 @@ import { updateVisibleColumns } from "../../../actions/table.action";
 import { UPDATE_VISIBLE_CONTACT } from "../../../actions/actions.vars";
 
 const initialState = {
-  id: true,
+  _id: true,
   cliente: true,
   proveedor: true,
   nombre: true,
   puesto: true,
-  email: true,
+  email: false,
   telefono: false,
   celular: false,
   f_nacimiento: false
