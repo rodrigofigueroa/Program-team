@@ -6,12 +6,13 @@ import { Switch, Route } from "react-router-dom";
 import Client from "./Pages/clients/Client";
 import Products from "./Pages/products/Products";
 import Providers from "./Pages/providers/Providers";
-import ClavesAdicionales from './Pages/products/clavesadicionales/ClavesAdicionales';
-import Lineas from './Pages/products/lineas/Lineas';
-import Marcas  from './Pages/products/marcas/Marcas';
-import Impuestos from './Pages/products/impuestos/Impuestos';
+import ClavesAdicionales from './Pages/clavesadicionales/ClavesAdicionales';
+
+import Lineas from './Pages/lineas/Lineas';
+import Marcas  from './Pages/marcas/Marcas';
+import Impuestos from './Pages/impuestos/Impuestos';
 import Contacts from "./Pages/contacts/Contacts";
-import Fabricantes from  './Pages/products/fabricantes/Fabricantes';
+import Fabricantes from  './Pages/fabricantes/Fabricantes';
 import Kits from './Pages/kits/Kits';
 
 function App() {

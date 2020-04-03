@@ -1,12 +1,13 @@
 import React,{useState} from 'react';
-import { Filter } from "../../../components/filter/Filter";
-import { Table } from "../../../components/table/Table";
+import { Filter } from "../../components/filter/Filter";
+import { Table } from "../../components/table/Table";
 import { useSelector } from "react-redux";
 
-import Header from "../../../components/header/Header";
+import Header from "../../components/header/Header";
+import {UPDATE_VISIBLECLAVES} from '../../store/actions/actions.vars';
 
 export default props  => {
-    const attrs = useSelector(state => state.ui.lineas);
+    const attrs = useSelector(state => state.ui.claves);
   const [search, setSearch] = useState("");
   const [searchAttr, setSearchAttr] = useState("_id");
   return (
@@ -14,7 +15,7 @@ export default props  => {
       <div className="row">
         <div className="col-12">
           <Header
-            catalogo="Lineas"
+            catalogo="Claves Adicionales"
             setSearchAttr={setSearchAttr}
             attrs={attrs}
             setSearch={setSearch}
@@ -24,15 +25,15 @@ export default props  => {
 
       <div className="row">
         <div className="col-sm-12 col-md-2">
-          <Filter attrs={attrs} catalogue="Lineas" />
+          <Filter attrs={attrs} catalogue="Clientes" type={UPDATE_VISIBLECLAVES}/>
         </div>
         <div className="col-sm-12 col-md-10">
           <Table
             searchAttr={searchAttr}
             search={search}
-            id={"tableLineas"}
-            api={"https://kapi-lineas.now.sh/"}
-            catalogo="lineas"
+            id={"tableClients"}
+            api={"https://kapi-clavesadicionales.now.sh/"}
+            catalogo="clavesadicionales"
             attrs={attrs}
           />
         </div>

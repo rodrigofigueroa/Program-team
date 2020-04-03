@@ -1,4 +1,4 @@
-import { UPDATE_VISIBLE_COLUMNS } from "../../../actions/actions.vars";
+import { UPDATE_VISIBLE_FABRICANTES } from "../../../actions/actions.vars";
 import { updateVisibleColumns } from "../../../actions/table.action";
 
 const initialValuesFabricantes = {
@@ -12,7 +12,7 @@ const initialValuesFabricantes = {
 
 export const FabricantesState = (state = initialValuesFabricantes, action) => {
     switch (action.type) {
-      case UPDATE_VISIBLE_COLUMNS:
+      case UPDATE_VISIBLE_FABRICANTES:
         return updateVisibleColumns(state, action.payload);
       default:
         return state;
