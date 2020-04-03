@@ -7,12 +7,12 @@ import Client from "./Pages/clients/Client";
 import Products from "./Pages/products/Products";
 import Providers from "./Pages/providers/Providers";
 import ClavesAdicionales from './Pages/clavesadicionales/ClavesAdicionales';
-
 import Lineas from './Pages/lineas/Lineas';
 import Marcas  from './Pages/marcas/Marcas';
 import Impuestos from './Pages/impuestos/Impuestos';
 import Contacts from "./Pages/contacts/Contacts";
 import Fabricantes from  './Pages/fabricantes/Fabricantes';
+import ContactsInternals from "./Pages/contacts-internals/ContactsInsternals";
 import Kits from './Pages/kits/Kits';
 
 function App() {
@@ -49,6 +49,9 @@ function App() {
         </Route>
         <Route path="/contactos">
           <Contacts />
+        </Route>
+        <Route path="/contactos-internos">
+          <ContactsInternals />
         </Route>
       </Switch>
     </Provider>
