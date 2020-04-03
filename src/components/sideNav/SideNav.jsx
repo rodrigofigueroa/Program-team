@@ -19,9 +19,9 @@ export default props => {
   };
   return (
     <nav className="fixed-top navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="#">
+      <Link to="/" className="navbar-brand">
         Navbar
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"

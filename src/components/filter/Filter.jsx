@@ -7,7 +7,11 @@ export const Filter = props => {
   return (
     <div
       className="card p-2"
-      style={{ height: "100%", overflowY: "auto", overflowX: "hidden" }}
+      style={{
+        maxHeight: "480px",
+        overflowY: "auto",
+        overflowX: "hidden"
+      }}
     >
       <p className="">Filtro de: {catalogue}</p>
 
