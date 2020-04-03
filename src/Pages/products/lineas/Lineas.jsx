@@ -24,13 +24,13 @@ export default props  => {
 
       <div className="row">
         <div className="col-sm-12 col-md-2">
-          <Filter attrs={attrs} catalogue="Clientes" />
+          <Filter attrs={attrs} catalogue="Lineas" />
         </div>
         <div className="col-sm-12 col-md-10">
           <Table
             searchAttr={searchAttr}
             search={search}
-            id={"tableClients"}
+            id={"tableLineas"}
             api={"https://kapi-lineas.now.sh/"}
             catalogo="lineas"
             attrs={attrs}

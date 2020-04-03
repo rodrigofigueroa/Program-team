@@ -14,7 +14,7 @@ export default props  => {
       <div className="row">
         <div className="col-12">
           <Header
-            catalogo="Marcas"
+            catalogo="Impuestos"
             setSearchAttr={setSearchAttr}
             attrs={attrs}
             setSearch={setSearch}
@@ -24,15 +24,15 @@ export default props  => {
 
       <div className="row">
         <div className="col-sm-12 col-md-2">
-          <Filter attrs={attrs} catalogue="Clientes" />
+          <Filter attrs={attrs} catalogue="Impuestos" />
         </div>
         <div className="col-sm-12 col-md-10">
           <Table
             searchAttr={searchAttr}
             search={search}
-            id={"tableClients"}
-            api={"https://kapi-marcas.now.sh/"}
-            catalogo="marcas"
+            id={"tableImpuestos"}
+            api={"https://kapi-impuestos.now.sh/"}
+            catalogo="impuestos"
             attrs={attrs}
           />
         </div>

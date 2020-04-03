@@ -1,7 +1,7 @@
 import { UPDATE_VISIBLE_COLUMNS } from "../../../actions/actions.vars";
 import { updateVisibleColumns } from "../../../actions/table.action";
 
-const initialValuesProductos = {
+const initialValuesMarcas = {
     _id: true,
      marca: true,
      descrip: true,
@@ -12,7 +12,7 @@ const initialValuesProductos = {
   
 }
 
-export const MarcasState = (state = initialValuesProductos, action) => {
+export const MarcasState = (state = initialValuesMarcas, action) => {
     switch (action.type) {
       case UPDATE_VISIBLE_COLUMNS:
         return updateVisibleColumns(state, action.payload);

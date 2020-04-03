@@ -11,7 +11,7 @@ import Lineas from './Pages/products/lineas/Lineas';
 import Marcas  from './Pages/products/marcas/Marcas';
 import Impuestos from './Pages/products/impuestos/Impuestos';
 import Contacts from "./Pages/contacts/Contacts";
-
+import Fabricantes from  './Pages/products/fabricantes/Fabricantes';
 function App() {
   const store = createStore(root);
   return (
@@ -37,6 +37,9 @@ function App() {
         </Route>
         <Route path="/impuestos">
           <Impuestos />
+        </Route>
+        <Route path="/fabricantes">
+            <Fabricantes />
         </Route>
         <Route path="/contactos">
           <Contacts />

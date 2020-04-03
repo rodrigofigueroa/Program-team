@@ -7,8 +7,9 @@ import {LineasState } from './table/table.reducer.lineas';
 import { MarcasState } from './table/table.reducer.marcas';
 import { ImpuestosState } from './table/table.reducer.impuestos';
 import { contactState } from "./contact/contact.reducer";
-
+import { FabricantesState }  from './table/table.reducer.fabricantes';
 export const uiReducer = combineReducers({
+  fabricantes: FabricantesState,
   impuestos: ImpuestosState,
   marcas: MarcasState,
   lineas: LineasState,
