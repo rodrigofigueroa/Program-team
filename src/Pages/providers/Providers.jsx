@@ -15,7 +15,7 @@ export default props => {
       <div className="row">
         <div className="col-12">
           <Header
-            catalogo="Clientes"
+            catalogo="proveedores"
             setSearchAttr={setSearchAttr}
             attrs={attrs}
             setSearch={setSearch}
@@ -27,7 +27,7 @@ export default props => {
         <div className="col-sm-12 col-md-2">
           <Filter
             attrs={attrs}
-            catalogue="Clientes"
+            catalogue="proveedores"
             type={UPDATE_VISIBLE_PROVIDERS}
           />
         </div>
@@ -35,9 +35,9 @@ export default props => {
           <Table
             searchAttr={searchAttr}
             search={search}
-            id={"tableClients"}
-            api={"https://kapi-clientes.now.sh/"}
-            catalogo="clientes"
+            id={"proveedores"}
+            api={"https://kapi-proveedores.now.sh/"}
+            catalogo="proveedores"
             attrs={attrs}
           />
         </div>
