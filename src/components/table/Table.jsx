@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./table.scss";
 import { useEffect } from "react";
 import Modal from "../modal/Modal";
 import Form from "../form/Form";
@@ -148,14 +147,14 @@ export const Table = props => {
         <div className="col-sm-12 col-md-6 ">
           <span className="float-right">
             <Modal
+              setDataTable={setDataTable}
+              dataTable={dataTable}
               idModal={props.id}
               colorBtn="mx-1 btn btn-success"
               btnLabel={
                 <span>
                   <i className="fas fa-plus"></i>{" "}
-                  {String(
-                    props.catalogo.slice(0, String(props.catalogo).length - 1)
-                  ).toUpperCase()}
+                  {String(props.catalogo).toUpperCase()}
                 </span>
               }
               datas={edit}
@@ -205,6 +204,8 @@ export const Table = props => {
 
                     <Modal
                       idModal={props.id + i}
+                      dataTable={dataTable}
+                      setDataTable={setDataTable}
                       btnLabel={<i className="fas fa-edit text-info"></i>}
                       datas={client}
                       api={api}

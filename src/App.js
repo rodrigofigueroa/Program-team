@@ -12,14 +12,13 @@ import Marcas  from './Pages/products/marcas/Marcas';
 import Impuestos from './Pages/products/impuestos/Impuestos';
 import Contacts from "./Pages/contacts/Contacts";
 import Fabricantes from  './Pages/products/fabricantes/Fabricantes';
+import Kits from './Pages/kits/Kits';
+
 function App() {
   const store = createStore(root);
   return (
     <Provider store={store}>
       <Switch>
-        <Route path="/proveedores">
-          <Providers />
-        </Route>
         <Route path="/productos">
           <Products />
         </Route>
@@ -40,6 +39,12 @@ function App() {
         </Route>
         <Route path="/fabricantes">
             <Fabricantes />
+        </Route>
+        <Route path="/proveedores">
+          <Providers />
+        </Route>
+        <Route path="/kits">
+          <Kits />
         </Route>
         <Route path="/contactos">
           <Contacts />

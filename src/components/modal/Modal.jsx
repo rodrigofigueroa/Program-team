@@ -5,7 +5,15 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export default props => {
-  const { children, colorBtn, api, catalogo, datas } = props;
+  const {
+    children,
+    colorBtn,
+    api,
+    catalogo,
+    datas,
+    setDataTable,
+    dataTable
+  } = props;
   const modalState = useSelector(state => state.ui.modal);
   const [typeButton, setTypeButton] = useState(false);
 
@@ -20,22 +28,28 @@ export default props => {
   const onUpdate = () => {
     let form = document.querySelector("form[id=" + props.idModal + "]");
     let inputs = form.querySelectorAll("input");
-    let data = {};
+    let data = new URLSearchParams();
     let error = false;
-
+    let dataSuplice = {};
     for (const input of inputs) {
-      data[input.name] = input.value;
+      data.append(input.name, input.value);
+      dataSuplice[input.name] = input.value;
       if (input.required && input.validity.valueMissing === true) {
         form.classList.add("was-validated");
         error = true;
       } else {
         if (input.type === "checkbox") {
-          data[input.name] = input.checked;
+          dataSuplice[input.name] = input.checked;
+          data.append(input.name, input.checked);
         }
       }
     }
+    console.log(datas);
 
     if (!error) {
+      let newData = [];
+      let auxData = [];
+      dataTable.map(datos => newData.push(datos));
       (async () => {
         try {
           const response = await fetch(
@@ -55,6 +69,17 @@ export default props => {
             console.error(error);
           }
           await response.json();
+
+          newData.map(item => {
+            console.log(item._id, datas._id);
+            if (String(item._id) == String(datas._id)) {
+              item = dataSuplice;
+              item._id = datas._id;
+            }
+            auxData.push(item);
+          });
+          console.log(auxData);
+          setDataTable(auxData);
         } catch (error) {
           console.error(error);
         }
@@ -67,6 +92,8 @@ export default props => {
     let inputs = form.querySelectorAll("input");
     let data = {};
     let error = false;
+    let newData = [];
+    dataTable.map(datos => newData.push(datos));
 
     for (const input of inputs) {
       data[input.name] = input.value;
@@ -81,20 +108,19 @@ export default props => {
     }
 
     if (!error) {
-      const catalogueLength = String(catalogo).length;
-      const splidseado = catalogo.slice(0, catalogueLength - 1);
       data.id =
-        splidseado +
+        catalogo[0] +
         Math.random()
           .toString(32)
           .slice(2);
       (async () => {
-        alert("no hay error");
+        alert("agregando");
+        console.log(data);
         try {
           const response = await fetch(`${api}api/${catalogo}/new`, {
             method: "POST",
             headers: {
-              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+              "Content-Type": "application/json"
             },
             mode: "cors",
             body: JSON.stringify(data)
@@ -103,6 +129,11 @@ export default props => {
             const error = await response.text();
             console.error(error);
           }
+          await response.json();
+
+          newData.unshift({ ...data, _id: data.id });
+          console.log(newData);
+          setDataTable(newData);
         } catch (error) {
           console.error(error);
         }

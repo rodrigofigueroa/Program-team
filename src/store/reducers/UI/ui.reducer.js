@@ -6,6 +6,7 @@ import { ClavesState } from './table/table.reducer.claves';
 import {LineasState } from './table/table.reducer.lineas';
 import { MarcasState } from './table/table.reducer.marcas';
 import { ImpuestosState } from './table/table.reducer.impuestos';
+import { providersState } from "./providers/providers.reducer";
 import { contactState } from "./contact/contact.reducer";
 import { FabricantesState }  from './table/table.reducer.fabricantes';
 export const uiReducer = combineReducers({
@@ -16,6 +17,7 @@ export const uiReducer = combineReducers({
   claves: ClavesState,
   products: ProductsState,
   client: clientState,
-  contact: contactState,
-  modal: modalState
+  modal: modalState,
+  providers: providersState,
+  contact: contactState
 });
