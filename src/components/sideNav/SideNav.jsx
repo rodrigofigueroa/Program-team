@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default props => {
   const { routes } = props;
+  const [routesState, setRoutes] = useState(routes);
+
+  const onDropDwon = (v, i, setState) => {
+    let aux = v.map(item => item);
+    aux.map(item => (item.selected = false));
+    aux[i].selected = true;
+    setState(aux);
+  };
+
+  const onLeave = (v, i, setState) => {
+    let aux = v.map(item => item);
+    aux.map(item => (item.selected = false));
+    setState(aux);
+  };
   return (
     <nav className="fixed-top navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
@@ -22,21 +36,37 @@ export default props => {
 
       <div className="collapse navbar-collapse" id="navBar">
         <ul className="navbar-nav mr-auto">
-          {routes.map(route => {
+          {routes.map((route, i) => {
             if (route.dropDown !== undefined) {
               return (
-                <li class="nav-item dropdown">
+                <li
+                  key={`li${i}`}
+                  className={
+                    route.selected
+                      ? "nav-item dropdown show"
+                      : "nav-item dropdown"
+                  }
+                  onMouseOver={() => onDropDwon(routesState, i, setRoutes)}
+                  onMouseLeave={() => onLeave(routesState, i, setRoutes)}
+                >
                   <Link
+                    to={route.route}
                     className="nav-link dropdown-toggle"
                     id={route.title}
                     role="button"
                     data-toggle="dropdown"
                     aria-haspopup="true"
-                    aria-expanded="false"
+                    aria-expanded={route.selected}
                   >
                     {route.title}
                   </Link>
-                  <div class="dropdown-menu" aria-labelledby={route.title}>
+                  <div
+                    className={
+                      routes.selected ? "dropdown-menu show" : "dropdown-menu"
+                    }
+                    style={{ display: route.selected ? "block" : "none" }}
+                    aria-labelledby={route.title}
+                  >
                     {route.dropDown.map((item, index) => {
                       return (
                         <Link

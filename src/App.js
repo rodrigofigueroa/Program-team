@@ -18,28 +18,34 @@ import SideNav from "./components/sideNav/SideNav";
 const routes = [
   {
     title: "Productos",
+    selected: false,
+    route: "/productos",
     dropDown: [
-      { route: "productos", title: "Productos" },
-      { route: "claves-adicionales", title: "ClavesAdicionales" },
-      { route: "lineas", title: "Lineas" },
-      { route: "marcas", title: "Marcas" },
-      { route: "impuestos", title: "Impuestos" },
-      { route: "fabricantes", title: "Fabricantes" }
+      { route: "/productos", title: "Productos" },
+      { route: "/claves-adicionales", title: "ClavesAdicionales" },
+      { route: "/lineas", title: "Lineas" },
+      { route: "/marcas", title: "Marcas" },
+      { route: "/impuestos", title: "Impuestos" },
+      { route: "/fabricantes", title: "Fabricantes" }
     ]
   },
   {
     title: "Clientes",
+    route: "/clientes",
+    selected: false,
     dropDown: [
-      { route: "clientes", title: "Clientes" },
-      { route: "contactos", title: "Contacts" }
+      { route: "/clientes", title: "Clientes" },
+      { route: "/contactos", title: "Contacts" }
     ]
   },
   {
     title: "Proveedores",
+    route: "/proveedores",
+    selected: false,
     dropDown: [
-      { route: "proveedores", title: "Providers" },
-      { route: "Contactos-internos", title: "ContactsInternals" },
-      { route: "Kits", title: "Kits" }
+      { route: "/proveedores", title: "Providers" },
+      { route: "/Contactos-internos", title: "ContactsInternals" },
+      { route: "/Kits", title: "Kits" }
     ]
   }
 ];
