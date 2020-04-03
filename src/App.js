@@ -11,6 +11,7 @@ import Lineas from './Pages/products/lineas/Lineas';
 import Marcas  from './Pages/products/marcas/Marcas';
 import Impuestos from './Pages/products/impuestos/Impuestos';
 import Contacts from "./Pages/contacts/Contacts";
+import ContactsInternals from "./Pages/contacts-internals/ContactsInsternals";
 import Fabricantes from  './Pages/products/fabricantes/Fabricantes';
 import Kits from './Pages/kits/Kits';
 
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path="/contactos">
           <Contacts />
+        </Route>
+        <Route path="/contactos-internos">
+          <ContactsInternals />
         </Route>
       </Switch>
     </Provider>
