@@ -10,7 +10,8 @@ export default props => {
     colorBtn,
     api,
     catalogo,
-    datas,
+    datas = {},
+    showActionButton = true,
     setDataTable,
     dataTable
   } = props;
@@ -34,17 +35,20 @@ export default props => {
     for (const input of inputs) {
       data.append(input.name, input.value);
       dataSuplice[input.name] = input.value;
-      if (input.required && input.validity.valueMissing === true) {
+      if (input.validity.patternMismatch) {
         form.classList.add("was-validated");
         error = true;
       } else {
+        if (input.validity.valueMissing) {
+          form.classList.add("was-validated");
+          error = true;
+        }
         if (input.type === "checkbox") {
           dataSuplice[input.name] = input.checked;
           data.append(input.name, input.checked);
         }
       }
     }
-    console.log(datas);
 
     if (!error) {
       let newData = [];
@@ -69,16 +73,13 @@ export default props => {
             console.error(error);
           }
           await response.json();
-
           newData.map(item => {
-            console.log(item._id, datas._id);
             if (String(item._id) == String(datas._id)) {
               item = dataSuplice;
               item._id = datas._id;
             }
             auxData.push(item);
           });
-          console.log(auxData);
           setDataTable(auxData);
         } catch (error) {
           console.error(error);
@@ -97,10 +98,14 @@ export default props => {
 
     for (const input of inputs) {
       data[input.name] = input.value;
-      if (input.required && input.validity.valueMissing === true) {
+      if (input.validity.patternMismatch) {
         form.classList.add("was-validated");
         error = true;
       } else {
+        if (input.validity.valueMissing) {
+          form.classList.add("was-validated");
+          error = true;
+        }
         if (input.type === "checkbox") {
           data[input.name] = input.checked;
         }
@@ -115,7 +120,6 @@ export default props => {
           .slice(2);
       (async () => {
         alert("agregando");
-        console.log(data);
         try {
           const response = await fetch(`${api}api/${catalogo}/new`, {
             method: "POST",
@@ -130,9 +134,8 @@ export default props => {
             console.error(error);
           }
           await response.json();
-
           newData.unshift({ ...data, _id: data.id });
-          console.log(newData);
+
           setDataTable(newData);
         } catch (error) {
           console.error(error);
@@ -204,26 +207,30 @@ export default props => {
               >
                 Close
               </button>
-              {typeButton ? (
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={() => {
-                    onUpdate();
-                  }}
-                >
-                  Actualizar
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={() => {
-                    onSave();
-                  }}
-                >
-                  Guardar
-                </button>
+              {showActionButton && (
+                <>
+                  {typeButton ? (
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={() => {
+                        onUpdate();
+                      }}
+                    >
+                      Actualizar
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={() => {
+                        onSave();
+                      }}
+                    >
+                      Guardar
+                    </button>
+                  )}
+                </>
               )}
             </div>
           </div>

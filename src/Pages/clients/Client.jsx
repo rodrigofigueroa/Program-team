@@ -10,6 +10,21 @@ export default props => {
   const attrs = useSelector(state => state.ui.client);
   const [search, setSearch] = useState("");
   const [searchAttr, setSearchAttr] = useState("_id");
+  const subCatalogues = [
+    {
+      component: (
+        <Table
+          api="https://kapi-contactos-clientes-proveedores.now.sh/"
+          catalogo={"contactos_clientes_proveedores"}
+          showEyeButton={false}
+          attrs={{ _id: true, nombre: true }}
+          showTrashButton={false}
+        />
+      ),
+      title: "Contactos",
+      selected: true
+    }
+  ];
   return (
     <div className="container-fluid">
       <div className="row">
@@ -39,6 +54,7 @@ export default props => {
             api={"https://kapi-clientes.now.sh/"}
             catalogo="clientes"
             attrs={attrs}
+            subCatalogues={subCatalogues}
           />
         </div>
       </div>

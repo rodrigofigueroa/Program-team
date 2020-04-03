@@ -3,10 +3,17 @@ import { useEffect } from "react";
 import Modal from "../modal/Modal";
 import Form from "../form/Form";
 import { useSelector } from "react-redux";
+import Tabs from "../tabs/Tabs";
 
 export const Table = props => {
   const edit = useSelector(state => state.data.edit);
-  const { attrs, api } = props;
+  const {
+    attrs,
+    api,
+    showEyeButton = true,
+    subCatalogues = [],
+    showTrashButton = true
+  } = props;
   const [inputFields, setInputFields] = useState([]);
   const [dataTable, setDataTable] = useState([]);
 
@@ -56,7 +63,8 @@ export const Table = props => {
             name: field,
             type: typeField,
             placeholder: field,
-            required: response.fields[field].required
+            required: response.fields[field].required,
+            regex: response.fields[field].test
           });
         });
         const length = newFields.length;
@@ -107,7 +115,7 @@ export const Table = props => {
         .then(async res => await res.json())
         .then(resp => setDataTable(resp.results));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -193,17 +201,18 @@ export const Table = props => {
                     );
                   })}
                   <td>
-                    <span
-                      className="text-danger m-1"
-                      onClick={() => {
-                        deleteItem(client._id);
-                      }}
-                    >
-                      <i className="fas fa-trash-alt" />
-                    </span>
-
+                    {showTrashButton && (
+                      <span
+                        className="text-danger m-1"
+                        onClick={() => {
+                          deleteItem(client._id);
+                        }}
+                      >
+                        <i className="fas fa-trash-alt" />
+                      </span>
+                    )}
                     <Modal
-                      idModal={props.id + i}
+                      idModal={props.id + (i + 1)}
                       dataTable={dataTable}
                       setDataTable={setDataTable}
                       btnLabel={<i className="fas fa-edit text-info"></i>}
@@ -211,12 +220,19 @@ export const Table = props => {
                       api={api}
                       catalogo={props.catalogo}
                     >
-                      <Form
-                        id={props.id + i}
-                        fields={inputFields}
-                        datas={client}
-                      />
+                      <Form id={props.id} fields={inputFields} datas={client} />
                     </Modal>
+                    {showEyeButton && (
+                      <Modal
+                        showActionButton={false}
+                        idModal={"eye" + props.id}
+                        btnLabel={<i className="fas fa-eye text-secondary"></i>}
+                        catalogo={"clientes"}
+                        datas={client}
+                      >
+                        <Tabs viewsProps={subCatalogues} />
+                      </Modal>
+                    )}
                   </td>
                 </tr>
               );

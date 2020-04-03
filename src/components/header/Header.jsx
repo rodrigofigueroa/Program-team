@@ -11,7 +11,6 @@ export default props => {
         <div className="col-3">
           <select
             onChangeCapture={e => {
-              console.log(e.target.value);
               setSearchAttr(e.target.value);
             }}
             id="searchSelect"
