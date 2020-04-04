@@ -227,7 +227,7 @@ export const Table = props => {
                         showActionButton={false}
                         idModal={"eye" + props.id}
                         btnLabel={<i className="fas fa-eye text-secondary"></i>}
-                        catalogo={props.catalogo}
+                        catalogo={'subcatalogos '+ props.catalogo}
                         datas={client}
                       >
                         <Tabs idTabs={props.id+i} viewsProps={subCatalogues} />
