@@ -89,10 +89,15 @@ export default (props) => {
                   <div
                     className={
                       // routes.selected define el menú que está visible que fué disparado por la acción route.selected
-                      routes.selected ? "dropdown-menu show" : "dropdown-menu"
+                      routes.selected
+                        ? "dropdown-menu dropdown-menu-right show "
+                        : "dropdown-menu dropdown-menu-right"
                     }
                     // define el estilo para mostrar u ocultar el dropDown menu activo
-                    style={{ display: route.selected ? "block" : "none" }}
+                    style={{
+                      display: route.selected ? "block" : "none",
+                      marginRight: "10px",
+                    }}
                     //route.title muestra el titulo del enlace
                     aria-labelledby={route.title}
                   >
@@ -102,7 +107,7 @@ export default (props) => {
                         <Link
                           key={`link${index}`}
                           to={item.route}
-                          className="dropdown-item"
+                          className="dropdown-item mr-4"
                         >
                           {item.title}
                         </Link>
