@@ -30,7 +30,7 @@ export default (props) => {
   /*Dispara la busqueda al precionar la tecla Enter en el input
   /****************************************************/
   const handleEnter = (event) => {
-    if (e.key === "Enter") {
+    if (event.key === "Enter") {
       setSearch(event.target.value);
     }
   };

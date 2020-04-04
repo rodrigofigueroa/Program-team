@@ -277,8 +277,7 @@ export const Table = (props) => {
                         //propaga el id del padre
                         idModal={"eye" + props.id}
                         btnLabel={<i className="fas fa-eye text-secondary"></i>}
-                        catalogo={"clientes"}
-                        // propaga las cabezeras de la columna de la tabla
+                        catalogo={"subcatalogos " + props.catalogo}
                         datas={client}
                       >
                         <Tabs

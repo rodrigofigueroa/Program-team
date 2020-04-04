@@ -25,7 +25,13 @@ export default (props) => {
   const [views, setViews] = useState(viewsProps);
 
   /*******************************/
-
+  /* variable: v es la parte de las vistas : views
+  /* variable: i es el index 
+  /* setState: es el estado
+  /*******************************/
+  /* cuando da click en algun tab (<i>) se activa el evento onClick y llama a changeTab  
+  /* mapea el arreglo que viene de props y a todos los pone en falos y al final el que diste 
+  /* click en verdadeo y muestra la vista
   /*******************************/
   const changeTab = (v, i, setState) => {
     let aux = v.map((item) => item);
@@ -37,6 +43,8 @@ export default (props) => {
   return (
     <div>
       <ul className="nav nav-justified nav-tabs" id="myTab" role="tablist">
+        {/*Se hace un mapeo del array y lo muestra*/}
+        {/* Se crea una condicion si view.selected esta seleccionado le agregue la clase active para que se muestre*/}
         {views.map((view, index) => {
           return (
             <li
@@ -61,6 +69,8 @@ export default (props) => {
       </ul>
 
       <div className="tab-content" id="myTabContent">
+        {/* Se mapea views para mostrar el contenido tambien como el componente Table, se le ingresa index,view */}
+        {/* Se crea una condicion si view.selected esta seleccionado le agregue la clase active para que se muestre*/}
         {views.map((view, index) => {
           return (
             <div
@@ -70,6 +80,7 @@ export default (props) => {
               role="tabpanel"
               aria-labelledby="home-tab"
             >
+              {/* El componente Table se esta renderizando pero no es del componente Tabs se esta reutilizando */}
               <Table
                 api={view.component.api}
                 catalogo={view.component.catalogo}
