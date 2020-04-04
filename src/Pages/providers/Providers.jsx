@@ -44,6 +44,16 @@ export default props => {
         title: "Kitelementos",
         selected: false
       },
+      {
+        component: {
+            api:"https://kapi-clientes.now.sh/",
+            catalogo:"clientes",
+            attrs:{ _id: true, cliente : false , nombre_fis : true , calle : true , colonia : true , pobla : true , ciudad : true , estado : true , pais : true , telefono : true , dias : false , credito : false , desc1 : false , rfc : true , clasificacion : true , contacto : true , cobrador : true , vend : true , precio : false , cp : true , diasrevision : true , observ : true , zona : true , correo : true , url : true , saldo : false , usuario : true , usuhora : true , usufecha : true , diascobro : true , bloqueado : false , web : true , emailcobranza : true , foto : true , puntos : true , recomendado : true , numerointerior : true , numeroexterior : true , uso : true , paiscomextrecep : false , municipiocomextrecep : false , localidadcomextrecep : false , estadocomextrecep : false , coloniacomextrecep : false , residenciafiscal : true , numregidtrib : true , complementoexterior : false ,},
+            id:'clientes'
+        },
+        title: "clientes",
+        selected: false
+      }
     ];
 
   return (
