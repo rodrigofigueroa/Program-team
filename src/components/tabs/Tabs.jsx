@@ -12,9 +12,21 @@ import React, { useState } from "react";
 import { Table } from "../table/Table";
 
 export default (props) => {
+  /*******************************/
+  /* variable: props
+  /* destructuring: viewProps 
+  /*******************************/
   const { viewsProps } = props;
+  /*******************************/
+  /* Usamos useState() Hook para insertar un array en el estado
+  /* setViews: para actualizar el stado
+  /* variable: views
+  /*******************************/
   const [views, setViews] = useState(viewsProps);
 
+  /*******************************/
+
+  /*******************************/
   const changeTab = (v, i, setState) => {
     let aux = v.map((item) => item);
     aux.map((item) => (item.selected = false));

@@ -47,7 +47,7 @@ export default (props) => {
   return (
     <nav className="fixed-top navbar navbar-expand-lg navbar-light bg-light">
       <Link to="/" className="navbar-brand">
-        Navbar
+        Kuhni
       </Link>
       <button className="navbar-toggler" type="button">
         <span className="navbar-toggler-icon"></span>
