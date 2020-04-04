@@ -26,7 +26,7 @@ export const Filter = (props) => {
   /****************************************************/
   const handleCheck = (item, dispatchFunc, typeConst) => {
     dispatchFunc({
-      type: typeConst,
+      type,
       payload: { state: (attrs[item] = !attrs[item]) },
     });
   };
