@@ -1,13 +1,23 @@
+/****************************************************/
+// Filename: Tabs.jsx
+// Created: Eduardo Monter Alonso | Ivan Figueroa | Andrés Arturo Olan
+// Change history:
+// 04.04.2020 / Eduardo Monter Alonso | Ivan Figeroa | Andrés Arturo Olan
+/****************************************************/
+/* Componente Menú estilo pestañas para navegar entre las vistas de la selección */
+/****************************************************/
+// EOF:
+/****************************************************/
 import React, { useState } from "react";
-import {Table} from '../table/Table';
+import { Table } from "../table/Table";
 
-export default props => {
+export default (props) => {
   const { viewsProps } = props;
   const [views, setViews] = useState(viewsProps);
 
   const changeTab = (v, i, setState) => {
-    let aux = v.map(item => item);
-    aux.map(item => (item.selected = false));
+    let aux = v.map((item) => item);
+    aux.map((item) => (item.selected = false));
 
     aux[i].selected = true;
     setState(aux);
@@ -54,7 +64,7 @@ export default props => {
                 showEyeButton={false}
                 attrs={view.component.attrs}
                 showTrashButton={false}
-                id={props.idTabs+view.component.id}
+                id={props.idTabs + view.component.id}
               />
             </div>
           );
