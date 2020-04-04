@@ -16,7 +16,8 @@ export default props => {
       component: {
           api:"https://kapi-contactos-clientes-proveedores.now.sh/",
           catalogo:"contactos_clientes_proveedores",
-          attrs:{ _id: true, nombre: true },
+          attrs:{ _id: true, cliente: true,  proveedor: true,  nombre: true,  puesto: true,  email: true,  telefono: true,  celular: true,  f_nacimiento: true,             
+        },
           id:'contactos_clientes_proveedores'
       },
       title: "Contactos Clientes Proveedores",
@@ -26,7 +27,7 @@ export default props => {
       component: {
           api:"https://kapi-clasificacionclientes.now.sh/",
           catalogo:"clasificacionclientes",
-          attrs:{ _id: true, nombre: true },
+          attrs:{ _id: true, descrip: true , usuario: true , usufecha: true , usuhora: true ,},
           id:'clasificacionclientes'
       },
       title: "Clasificación de Clientes",
@@ -36,7 +37,7 @@ export default props => {
       component: {
           api:"https://kapi-zonas.now.sh/",
           catalogo:"zonas",
-          attrs:{ _id: true, nombre: true },
+          attrs:{ _id: true, descrip: true ,usuario: true ,usufecha: true ,usuhora: true ,},
           id:'zonas'
       },
       title: "Zonas",

@@ -15,7 +15,7 @@ export default props => {
       component: {
           api:"https://kapi-clavesadicionales.now.sh/",
           catalogo:"clavesadicionales",
-          attrs:{ _id: true, nombre: true },
+          attrs:{ _id: true},
           id:'clavesadicionales'
       },
       title: "Claves Adicionales",
@@ -25,7 +25,7 @@ export default props => {
       component: {
           api:"https://kapi-lineas.now.sh/",
           catalogo:"lineas",
-          attrs:{ _id: true, nombre: true },
+          attrs:{ _id: true, descrip : true, usuario : true, usufecha : true, usuhora : true, numero : true, },
           id:'lineas'
       },
       title: "Lineas",
@@ -35,12 +35,34 @@ export default props => {
       component: {
           api:"https://kapi-marcas.now.sh/",
           catalogo:"marcas",
-          attrs:{ _id: true, nombre: true },
+          attrs:{ _id: true, descrip: true , usuario: true , usufecha: true , usuhora: true , numero: true ,},
           id:'marcas'
       },
       title: "Marcas",
       selected: false
     },
+    {
+      component: {
+          api:"https://kapi-impuestos.now.sh/",
+          catalogo:"impuestos",
+          attrs:{ _id: true, impuesto: true, descrip: true, valor: true, usuario: true, usufecha: true, usuhora: true, 
+          },
+          id:'impuestos'
+      },
+      title: "Impuestos",
+      selected: false
+    },
+    {
+      component: {
+          api:"https://kapi-fabricantes.now.sh/",
+          catalogo:"fabricantes",
+          attrs:{ _id: true, nombre: true,usuario: true,usuhora: true,usufecha: true,},
+          id:'fabricantes'
+      },
+      title: "Fabricantes",
+      selected: false
+    },
+
   ];
 
   return (
