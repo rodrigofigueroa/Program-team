@@ -62,7 +62,17 @@ export default props => {
       title: "Fabricantes",
       selected: false
     },
-
+    {
+      component: {
+          api:"https://kapi-listaprecios.now.sh/",
+          catalogo:"listaprecios",
+          attrs:{ _id: true, id_precio: true , nombre : true, usuario : true, usufecha : true, usuhora             : true,
+          },
+          id:'Lista Precios'
+      },
+      title: "Lista Precios",
+      selected: false
+    }
   ];
 
   return (
