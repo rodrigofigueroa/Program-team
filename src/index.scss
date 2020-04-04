@@ -7,18 +7,19 @@
   border: 1px solid lightgray;
 }
 
-.nav-item .active {
-  color: white !important;
-  background-color: #17a2b8 !important;
-}
-
 .navbar {
   background-color: #293542 !important;
 }
 
-.nav-item .nav-link {
-  color: white !important;
+.navbar .nav-link {
+  color:  white !important;
 }
+
+.nav-link.active {
+  color: white !important;
+  background-color: #17a2b8 !important;
+}
+
 .navbar-brand {
   color: white !important;
 }

@@ -19,10 +19,39 @@ export default props => {
           showEyeButton={false}
           attrs={{ _id: true, nombre: true }}
           showTrashButton={false}
+          id='contactos_clientes_proveedores'
         />
       ),
       title: "Contactos",
       selected: true
+    },
+    {
+      component: (
+        <Table
+          api="https://kapi-clasificacionclientes.now.sh/"
+          catalogo={"clasificacionclientes"}
+          showEyeButton={false}
+          attrs={{ _id: true, nombre: true }}
+          showTrashButton={false}
+          id='clasificacionclientes'
+        />
+      ),
+      title: "Clasificacion",
+      selected: false
+    },
+    {
+      component: (
+        <Table
+          api="https://kapi-zonas.now.sh/"
+          catalogo={"zonas"}
+          showEyeButton={false}
+          attrs={{ _id: true, nombre: true }}
+          showTrashButton={false}
+          id='zonas'
+        />
+      ),
+      title: "Zonas",
+      selected: false
     }
   ];
   return (

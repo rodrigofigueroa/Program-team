@@ -212,7 +212,7 @@ export const Table = props => {
                       </span>
                     )}
                     <Modal
-                      idModal={props.id + (i + 1)}
+                      idModal={props.id+i}
                       dataTable={dataTable}
                       setDataTable={setDataTable}
                       btnLabel={<i className="fas fa-edit text-info"></i>}
@@ -220,7 +220,7 @@ export const Table = props => {
                       api={api}
                       catalogo={props.catalogo}
                     >
-                      <Form id={props.id} fields={inputFields} datas={client} />
+                      <Form id={props.id +i} fields={inputFields} datas={client} />
                     </Modal>
                     {showEyeButton && (
                       <Modal
@@ -230,7 +230,7 @@ export const Table = props => {
                         catalogo={"clientes"}
                         datas={client}
                       >
-                        <Tabs viewsProps={subCatalogues} />
+                        <Tabs idTabs={props.id+i} viewsProps={subCatalogues} />
                       </Modal>
                     )}
                   </td>

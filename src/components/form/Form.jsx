@@ -7,7 +7,6 @@ export default props => {
   useEffect(() => {
     setDataForm(datas);
   }, [datas]);
-
   return (
     <form id={props.id} autoComplete="off">
       <div className="row">
@@ -20,7 +19,7 @@ export default props => {
                     <div key={`checkbox${i}`}>
                       <input
                         name={input.name}
-                        id={id + input.name}
+                        id={id + input.name + index +i}
                         type="checkbox"
                         defaultChecked={dataForm[input.name] || false}
                       />
@@ -38,7 +37,7 @@ export default props => {
                   <div className="form-group" key={`input${i}`}>
                     <label htmlFor={input.name}>{input.name}</label>
                     <input
-                      id={id + input.name}
+                      id={id + input.name + index +i}
                       pattern={regex ? String(regex) : "*"}
                       name={input.name}
                       defaultValue={dataForm[input.name] || ""}

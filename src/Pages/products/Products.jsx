@@ -9,6 +9,40 @@ export default props => {
   const attrs = useSelector(state => state.ui.products);
   const [search, setSearch] = useState("");
   const [searchAttr, setSearchAttr] = useState("_id");
+
+  const subCatalogues = [
+    {
+      component: {
+          api:"https://kapi-clavesadicionales.now.sh/",
+          catalogo:"clavesadicionales",
+          attrs:{ _id: true, nombre: true },
+          id:'clavesadicionales'
+      },
+      title: "Claves Adicionales",
+      selected: true
+    },
+    {
+      component: {
+          api:"https://kapi-lineas.now.sh/",
+          catalogo:"lineas",
+          attrs:{ _id: true, nombre: true },
+          id:'lineas'
+      },
+      title: "Lineas",
+      selected: false
+    },
+    {
+      component: {
+          api:"https://kapi-marcas.now.sh/",
+          catalogo:"marcas",
+          attrs:{ _id: true, nombre: true },
+          id:'marcas'
+      },
+      title: "Marcas",
+      selected: false
+    },
+  ];
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -34,6 +68,7 @@ export default props => {
             api={"https://kapi-productos.now.sh/"}
             catalogo="productos"
             attrs={attrs}
+            subCatalogues={subCatalogues}
           />
         </div>
       </div>

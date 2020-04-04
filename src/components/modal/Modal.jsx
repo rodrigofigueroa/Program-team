@@ -74,11 +74,11 @@ export default props => {
           }
           await response.json();
           newData.map(item => {
-            if (String(item._id) == String(datas._id)) {
+            if (String(item._id) === String(datas._id)) {
               item = dataSuplice;
               item._id = datas._id;
             }
-            auxData.push(item);
+            return auxData.push(item);
           });
           setDataTable(auxData);
         } catch (error) {

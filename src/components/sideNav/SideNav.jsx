@@ -35,7 +35,7 @@ export default props => {
       </button>
 
       <div className="collapse navbar-collapse" id="navBar">
-        <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav ml-auto">
           {routes.map((route, i) => {
             if (route.dropDown !== undefined) {
               return (
@@ -84,10 +84,8 @@ export default props => {
             } else {
               return (
                 <li className="nav-item">
-                  <Link to={route.route}>
-                    <a className="nav-link" href="#">
+                  <Link to={route.route} className='nav-link'>
                       {route.title} <span className="sr-only">(current)</span>
-                    </a>
                   </Link>
                 </li>
               );

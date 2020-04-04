@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Table} from '../table/Table';
 
 export default props => {
   const { viewsProps } = props;
@@ -47,7 +48,14 @@ export default props => {
               role="tabpanel"
               aria-labelledby="home-tab"
             >
-              {view.component}
+              <Table
+                api={view.component.api}
+                catalogo={view.component.catalogo}
+                showEyeButton={false}
+                attrs={view.component.attrs}
+                showTrashButton={false}
+                id={props.idTabs+view.component.id}
+              />
             </div>
           );
         })}
