@@ -27,7 +27,7 @@ export default props => {
         <div className="col-sm-12 col-md-2">
           <Filter
             attrs={attrs}
-            catalogue="Clientes"
+            catalogue="Clasificación"
             type={UPDATE_VISIBLE_CLASIFICATION}
           />
         </div>
