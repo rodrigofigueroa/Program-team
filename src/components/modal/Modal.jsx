@@ -250,7 +250,7 @@ export default (props) => {
                   {typeButton ? (
                     <button
                       type="button"
-                      className="btn btn-primary"
+                      className="btn btn-success"
                       // dispara la función onUpdate
                       onClick={() => onUpdate()}
                     >
