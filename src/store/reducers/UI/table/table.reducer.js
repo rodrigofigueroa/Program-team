@@ -49,7 +49,6 @@ const initialTableState = {
   residenciafiscal: false,
   numregidtrib: false,
   complementoexterior: false,
-  actions: true
 };
 
 export const clientState = (state = initialTableState, action) => {
