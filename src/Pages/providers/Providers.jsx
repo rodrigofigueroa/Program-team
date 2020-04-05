@@ -11,6 +11,54 @@ export default (props) => {
   const [search, setSearch] = useState("");
   const [searchAttr, setSearchAttr] = useState("_id");
 
+  const atributos = [
+    { name: "_id", disabled: true, type: "text", required: true },
+    { name: "proveedor", disabled: false, type: "text", required: true },
+    { name: "nombre", disabled: false, type: "text", required: true },
+    { name: "calle", disabled: false, type: "text", required: true },
+    { name: "colonia", disabled: false, type: "select", required: true },
+    { name: "pobla", disabled: false, type: "select", required: true },
+    { name: "ciudad", disabled: false, type: "select", required: true },
+    { name: "estado", disabled: false, type: "select", required: true },
+    { name: "pais", disabled: false, type: "select", required: true },
+    { name: "telefono", disabled: false, type: "text", required: true },
+    { name: "dias", disabled: false, type: "text", required: true },
+    { name: "credito", disabled: false, type: "text", required: true },
+    { name: "des1", disabled: false, type: "text", required: true },
+    { name: "contacto", disabled: false, type: "text", required: true },
+    // { name: "alta", disabled: false, type: "text", required: true },
+    { name: "rfc", disabled: false, type: "text", required: true },
+    {
+      name: "tipo",
+      disabled: false,
+      type: "text",
+      required: true,
+      opciones: ["productos", "servicios"],
+    },
+    { name: "cp", disabled: false, type: "text", required: true },
+    {
+      name: "diasrevicion",
+      disabled: false,
+      type: "text",
+      required: true,
+      dias: ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"],
+    },
+    { name: "obser", disabled: false, type: "text", required: true },
+    {
+      name: "zona",
+      disabled: false,
+      type: "select",
+      required: true,
+      api: "https://kapi-zonas.now.sh/api/zonas",
+    },
+    { name: "url", disabled: false, type: "url", required: true },
+    { name: "mail", disabled: false, type: "email", required: true },
+    { name: "saldo", disabled: false, type: "text", required: true },
+    { name: "usuario", disabled: false, type: "text", required: true },
+    // { name: "usuHora", disabled: false, type: "text", required: true },
+    // { name: "usuFech", disabled: false, type: "text", required: true },
+  ];
+
   const subCatalogues = [
     {
       component: {
@@ -127,6 +175,7 @@ export default (props) => {
           <Table
             searchAttr={searchAttr}
             search={search}
+            inputAttrs={atributos}
             id={"proveedores"}
             api={"https://kapi-proveedores.now.sh/"}
             catalogo="proveedores"

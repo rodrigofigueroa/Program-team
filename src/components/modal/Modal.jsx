@@ -116,7 +116,7 @@ export default (props) => {
   /****************************************************/
   const onSave = () => {
     let form = document.querySelector("form[id=" + props.idModal + "]");
-    let inputs = form.querySelectorAll("input");
+    let inputs = form.querySelectorAll("input,select,textarea");
     let data = {};
     let error = false;
     let newData = [];
@@ -138,6 +138,10 @@ export default (props) => {
         //validación de input checkbox
         if (input.type === "checkbox") {
           data[input.name] = input.checked;
+        }
+        if (input.type === "select") {
+          console.log(input);
+          data[input.name] = input.value;
         }
       }
     }

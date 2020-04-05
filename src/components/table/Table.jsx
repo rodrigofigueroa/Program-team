@@ -23,6 +23,7 @@ export const Table = (props) => {
     showEyeButton = true,
     subCatalogues = [],
     showTrashButton = true,
+    inputAttrs = [],
   } = props;
   const [inputFields, setInputFields] = useState([]);
   const [dataTable, setDataTable] = useState([]);
@@ -48,73 +49,40 @@ export const Table = (props) => {
 
   //useEffect para escuchar el ciclo de vida
   useEffect(() => {
-    fetch(`${api}api/${props.catalogo}/docs`)
-      .then((response) => response.json())
-      .then((response) => {
-        let newFields = [
-          {
-            name: "_id",
-            type: "number",
-            placerholder: "id producto",
-            required: true,
-          },
-        ];
-        let typeField = "";
-        Object.keys(response.fields).map((field) => {
-          if (response.fields[field].type === "string") {
-            typeField = "text";
-          } else if (response.fields[field].type === "boolean") {
-            typeField = "checkbox";
-          } else if (response.fields[field].type === "id") {
-            typeField = "text";
-          } else {
-            typeField = response.fields[field].type;
-          }
+    const length = inputAttrs.length;
 
-          return newFields.push({
-            name: field,
-            type: typeField,
-            placeholder: field,
-            required: response.fields[field].required,
-            regex: response.fields[field].test,
-          });
-        });
-        const length = newFields.length;
+    let fields = [];
 
-        let fields = [];
-
-        if (length > 0 && length <= 10) {
-          fields = [{ size: "col-md-12", inputs: newFields }];
-        } else if (length > 10 && length <= 20) {
-          fields = [
-            { size: "col-md-6 col-sm-12", inputs: newFields.slice(0, 10) },
-            { size: "col-md-6 col-sm-12", inputs: newFields.slice(10, 20) },
-          ];
-        } else if (length > 20 && length <= 30) {
-          fields = [
-            { size: "col-md-4 col-sm-12", inputs: newFields.slice(0, 10) },
-            { size: "col-md-4 col-sm-12", inputs: newFields.slice(10, 20) },
-            { size: "col-md-4 col-sm-12", inputs: newFields.slice(20, 30) },
-          ];
-        } else if (length > 30 && length <= 40) {
-          fields = [
-            { size: "col-md-3 col-sm-12", inputs: newFields.slice(0, 10) },
-            { size: "col-md-3 col-sm-12", inputs: newFields.slice(10, 20) },
-            { size: "col-md-3 col-sm-12", inputs: newFields.slice(20, 30) },
-            { size: "col-md-3 col-sm-12", inputs: newFields.slice(30, 40) },
-          ];
-        } else if (length > 40 && length <= 50) {
-          fields = [
-            { size: "col-md-3 col-sm-12", inputs: newFields.slice(0, 13) },
-            { size: "col-md-3 col-sm-12", inputs: newFields.slice(13, 26) },
-            { size: "col-md-3 col-sm-12", inputs: newFields.slice(26, 39) },
-            { size: "col-md-3 col-sm-12", inputs: newFields.slice(39, 50) },
-          ];
-        }
-        setInputFields(fields);
-      })
-      .catch((error) => console.error(error));
-  }, [api, props.catalogo]);
+    if (length > 0 && length <= 10) {
+      fields = [{ size: "col-md-12", inputs: inputAttrs }];
+    } else if (length > 10 && length <= 20) {
+      fields = [
+        { size: "col-md-6 col-sm-12", inputs: inputAttrs.slice(0, 10) },
+        { size: "col-md-6 col-sm-12", inputs: inputAttrs.slice(10, 20) },
+      ];
+    } else if (length > 20 && length <= 30) {
+      fields = [
+        { size: "col-md-4 col-sm-12", inputs: inputAttrs.slice(0, 10) },
+        { size: "col-md-4 col-sm-12", inputs: inputAttrs.slice(10, 20) },
+        { size: "col-md-4 col-sm-12", inputs: inputAttrs.slice(20, 30) },
+      ];
+    } else if (length > 30 && length <= 40) {
+      fields = [
+        { size: "col-md-3 col-sm-12", inputs: inputAttrs.slice(0, 10) },
+        { size: "col-md-3 col-sm-12", inputs: inputAttrs.slice(10, 20) },
+        { size: "col-md-3 col-sm-12", inputs: inputAttrs.slice(20, 30) },
+        { size: "col-md-3 col-sm-12", inputs: inputAttrs.slice(30, 40) },
+      ];
+    } else if (length > 40 && length <= 50) {
+      fields = [
+        { size: "col-md-3 col-sm-12", inputs: inputAttrs.slice(0, 13) },
+        { size: "col-md-3 col-sm-12", inputs: inputAttrs.slice(13, 26) },
+        { size: "col-md-3 col-sm-12", inputs: inputAttrs.slice(26, 39) },
+        { size: "col-md-3 col-sm-12", inputs: inputAttrs.slice(39, 50) },
+      ];
+    }
+    setInputFields(fields);
+  }, []);
 
   /****************************************************/
   /*variable api:string,
@@ -250,6 +218,7 @@ export const Table = (props) => {
                         <i className="fas fa-trash-alt" />
                       </span>
                     )}
+
                     <Modal
                       // propaga el id del padre
                       idModal={props.id + i}
@@ -281,12 +250,12 @@ export const Table = (props) => {
                         catalogo={"subcatalogos " + props.catalogo}
                         datas={client}
                       >
-                        <Tabs
+                        {/* <Tabs
                           // propaga el id del padre
                           idTabs={props.id + i}
                           // propaga los subcatalogos a las tabs
                           viewsProps={subCatalogues}
-                        />
+                        /> */}
                       </Modal>
                     )}
                   </td>
