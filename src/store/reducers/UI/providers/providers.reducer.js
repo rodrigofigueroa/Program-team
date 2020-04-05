@@ -3,8 +3,6 @@ import { UPDATE_VISIBLE_PROVIDERS } from "../../../actions/actions.vars";
 
 const initialTableState = {
   _id: true,
-  uid: true,
-  cliente: true,
   proveedor: true,
   nombre: true,
   puesto: false,
