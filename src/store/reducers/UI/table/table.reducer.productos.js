@@ -7,7 +7,7 @@ const initialValuesProductos = {
   descrip: true,
   tipo: true,
   linea: true,
-  marca: true,
+  marca: false,
   precio1: false,
   existencia: false,
   costo_u: false,

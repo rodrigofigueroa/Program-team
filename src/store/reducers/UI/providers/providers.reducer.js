@@ -6,7 +6,7 @@ const initialTableState = {
   proveedor: true,
   nombre: true,
   calle: true,
-  colonia: false,
+  colonia: true,
   pobla: false,
   ciudad: false,
   estado: false,
