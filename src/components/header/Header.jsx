@@ -38,11 +38,11 @@ export default (props) => {
   return (
     <div className="card p-2 my-2 bg-info">
       <div className="row">
-        <div className="col-3">
+        <div className="col-sm 12 col-md-6">
           {/* el titulo del catalogo */}
           <h2 className="text-white">{catalogo}</h2>
         </div>
-        <div className="col-3">
+        <div className="col-sm 12 col-md-2">
           <select
             //dispara la función handleSearch
             onChangeCapture={(e) => handleSearch(e)}
@@ -50,7 +50,7 @@ export default (props) => {
             name="searchSelect"
             autoComplete="off"
             type="select"
-            className="form-control"
+            className="form-control mt-1"
             aria-describedby="emailHelp"
           >
             {/* mapeo de las opciones de la columna por la que se buscara */}
@@ -60,7 +60,7 @@ export default (props) => {
             })}
           </select>
         </div>
-        <div className="col-6">
+        <div className="col-sm 12 col-md-4">
           <input
             //dispara el evento handleEnter
             onKeyPress={(event) => handleEnter(event)}
@@ -70,7 +70,7 @@ export default (props) => {
             autoComplete="off"
             type="search"
             placeholder="buscar"
-            className="form-control"
+            className="form-control mt-1"
             aria-describedby="emailHelp"
           />
         </div>
