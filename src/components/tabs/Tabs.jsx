@@ -72,6 +72,7 @@ export default (props) => {
         {/* Se mapea views para mostrar el contenido tambien como el componente Table, se le ingresa index,view */}
         {/* Se crea una condicion si view.selected esta seleccionado le agregue la clase active para que se muestre*/}
         {views.map((view, index) => {
+          console.log(props.idTabs + view.component.id + index);
           return (
             <div
               key={"tabContent" + index}
@@ -87,7 +88,7 @@ export default (props) => {
                 showEyeButton={false}
                 attrs={view.component.attrs}
                 showTrashButton={false}
-                id={props.idTabs + view.component.id}
+                id={props.idTabs + view.component.id + index}
               />
             </div>
           );

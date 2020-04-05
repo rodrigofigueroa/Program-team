@@ -60,7 +60,7 @@ export default (props) => {
                       // concate los indices al id del padre y al nombre del input para crear un nuevo id
                       id={id + input.name + index + i}
                       // valida que se cumpla el regex en el input
-                      pattern={regex ? String(regex) : "*"}
+                      pattern={regex ? String(regex) : "[a-zA-Z0-9]{0,}"}
                       // define el nombre del input
                       name={input.name}
                       // define el valor por defecto

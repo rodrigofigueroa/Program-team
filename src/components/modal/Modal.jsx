@@ -115,11 +115,12 @@ export default (props) => {
   /*dispara el guardado de información en la api
   /****************************************************/
   const onSave = () => {
-    let form = document.querySelector("form");
+    let form = document.querySelector("form[id=" + props.idModal + "]");
     let inputs = form.querySelectorAll("input");
     let data = {};
     let error = false;
     let newData = [];
+    console.log(form);
     //copia del arreglo del estado de la tabla
     dataTable.map((datos) => newData.push(datos));
     //iteración de los inputs del formulario

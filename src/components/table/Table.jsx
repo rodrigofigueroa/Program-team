@@ -177,7 +177,7 @@ export const Table = (props) => {
 
   return (
     <>
-      <div className="row py-2">
+      <div className="row py-2" id={props.id}>
         {/* dataTable.length es la cantidad de filas cargadas*/}
         <p className="col-sm-12 col-md-6">Total: {dataTable.length}</p>
         <div className="col-sm-12 col-md-6 ">
