@@ -15,7 +15,20 @@ export default (props) => {
       component: {
         api: "https://kapi-clavesadicionales.now.sh/",
         catalogo: "clavesadicionales",
-        attrs: { _id: true },
+        attrs: {
+          _id: true,
+          clave: true,
+          descripcion: true,
+          usuario: true,
+          usufecha: true,
+          usuhora: true,
+          articulo: true,
+          cantidad: true,
+          unidad: true,
+          existencia: true,
+          precio: true,
+          imagen: true,
+        },
         id: "clavesadicionales",
       },
       title: "Claves Adicionales",
@@ -27,6 +40,7 @@ export default (props) => {
         catalogo: "lineas",
         attrs: {
           _id: true,
+          linea: true,
           descrip: true,
           usuario: true,
           usufecha: true,
@@ -44,6 +58,7 @@ export default (props) => {
         catalogo: "marcas",
         attrs: {
           _id: true,
+          marca: true,
           descrip: true,
           usuario: true,
           usufecha: true,
@@ -79,6 +94,7 @@ export default (props) => {
         catalogo: "fabricantes",
         attrs: {
           _id: true,
+          fabricante: true,
           nombre: true,
           usuario: true,
           usuhora: true,
