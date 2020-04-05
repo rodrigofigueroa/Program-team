@@ -120,7 +120,6 @@ export default (props) => {
     let data = {};
     let error = false;
     let newData = [];
-    console.log(form);
     //copia del arreglo del estado de la tabla
     dataTable.map((datos) => newData.push(datos));
     //iteración de los inputs del formulario
