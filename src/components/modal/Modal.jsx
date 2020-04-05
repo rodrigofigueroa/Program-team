@@ -94,7 +94,7 @@ export default (props) => {
             console.error(error);
           }
           await response.json();
-          //mapeo de la información
+          alert("Datos actualizados correctamente");
           newData.map((item) => {
             if (String(item._id) === String(datas._id)) {
               item = dataSuplice;
@@ -145,7 +145,6 @@ export default (props) => {
     if (!error) {
       data.id = catalogo[0] + Math.random().toString(32).slice(2);
       (async () => {
-        alert("agregando");
         try {
           const response = await fetch(`${api}api/${catalogo}/new`, {
             method: "POST",
@@ -161,6 +160,7 @@ export default (props) => {
             console.error(error);
           }
           await response.json();
+          alert("Datos agregados correctamente");
           newData.unshift({ ...data, _id: data.id });
 
           setDataTable(newData);

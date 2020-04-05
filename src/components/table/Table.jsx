@@ -161,6 +161,7 @@ export const Table = (props) => {
           }
         );
         await response.json();
+        alert("Datos eliminados correctamente");
         dataTable.map((item, index) => {
           if (String(item._id) === String(id)) {
             delete newData[index];
