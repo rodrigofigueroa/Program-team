@@ -117,7 +117,7 @@ export default (props) => {
           usufecha: true,
           usuhora: true,
         },
-        id: "Lista Precios",
+        id: "listaprecios",
       },
       title: "Lista Precios",
       selected: false,
