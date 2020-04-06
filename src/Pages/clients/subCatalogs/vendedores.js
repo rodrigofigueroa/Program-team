@@ -1,6 +1,4 @@
-import { api_clasificacionclientes } from "../../../utils/apis";
-
-export const clasifications = {
+export const vendedores = {
   component: {
     api: api_clasificacionclientes,
     catalogo: "clasificacionclientes",

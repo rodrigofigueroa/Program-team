@@ -36,13 +36,13 @@ export default (props) => {
         </div>
         <div className="col-sm-12 col-md-10">
           <Table
-            searchAttr={searchAttr}
-            search={search}
-            id="tableClients"
             api={"https://kapi-clientes.now.sh/"}
             catalogo="clientes"
+            id="tableClients"
             attrs={attrs}
             inputAttrs={atributes}
+            searchAttr={searchAttr}
+            search={search}
             subCatalogues={subCatalogs}
           />
         </div>
