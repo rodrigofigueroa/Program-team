@@ -176,7 +176,7 @@ export const Table = (props) => {
             >
               {/* props.id contiene el id heredado del padre */}
               {/* inputFields contiene un objeto con las columnas y tipos de datos para generar los inputs */}
-              <Form id={props.id} fields={inputFields} datas={edit} />
+              <Form id={props.id} fields={inputFields} />
             </Modal>
           </span>
         </div>
@@ -264,12 +264,12 @@ export const Table = (props) => {
                         catalogo={"subcatalogos " + props.catalogo}
                         datas={client}
                       >
-                        <Tabs
+                        {/* <Tabs
                           // propaga el id del padre
                           idTabs={props.id + i}
                           // propaga los subcatalogos a las tabs
                           viewsProps={subCatalogues}
-                        />
+                        /> */}
                       </Modal>
                     )}
                   </td>

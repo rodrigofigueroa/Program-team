@@ -93,7 +93,6 @@ export default (props) => {
             console.error(error);
           }
           await response.json();
-          alert("Datos actualizados correctamente");
           newData.map((item) => {
             if (String(item._id) === String(datas._id)) {
               item = dataSuplice;
@@ -139,7 +138,6 @@ export default (props) => {
           data[input.name] = input.checked;
         }
         if (input.type === "select") {
-          console.log(input);
           data[input.name] = input.value;
         }
       }
@@ -165,7 +163,6 @@ export default (props) => {
           await response.json();
           alert("Datos agregados correctamente");
           newData.unshift({ ...data, _id: data.id });
-
           setDataTable(newData);
         } catch (error) {
           console.error(error);

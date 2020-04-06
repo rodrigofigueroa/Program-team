@@ -4,13 +4,9 @@ import { Table } from "../../components/table/Table";
 import { useSelector, useDispatch } from "react-redux";
 
 import Header from "../../components/header/Header";
-import {
-  UPDATE_VISIBLE_COLUMNS,
-  CLOSE_SWAL,
-} from "../../store/actions/actions.vars";
+import { UPDATE_VISIBLE_COLUMNS } from "../../store/actions/actions.vars";
 import { subCatalogs } from "./subCatalogs/subCatalogs";
 import { atributes } from "./subCatalogs/atributes";
-import { CustomAlert } from "../../components/customAlert/CustomAlert";
 export default () => {
   const attrs = useSelector((state) => state.ui.client);
   const [search, setSearch] = useState("");

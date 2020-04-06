@@ -9,15 +9,11 @@
 // EOF:
 /****************************************************/
 import React, { useState } from "react";
-import { useEffect } from "react";
 import Input from "../input/Input";
 export default (props) => {
-  const { fields = [], datas = {}, id } = props;
+  const { fields = [], id, datas = {} } = props;
   const [dataForm, setDataForm] = useState(datas);
   //useEffect para escuchar el ciclo de vida
-  useEffect(() => {
-    setDataForm(datas);
-  }, []);
   return (
     //define el id del formulario al del padre
     <form id={id} autoComplete="off">
