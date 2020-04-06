@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 import Header from "../../components/header/Header";
 import { UPDATE_VISIBLE_PROVIDERS } from "../../store/actions/actions.vars";
+import {api_proveedores} from '../../utils/apis';
 
 export default (props) => {
   const attrs = useSelector((state) => state.ui.providers);
@@ -121,30 +122,83 @@ export default (props) => {
     {
       name: "tipo",
       disabled: false,
-      type: "text",
+      type: "select",
       required: true,
-      opciones: ["productos", "servicios"],
+      options: [
+        { tipo: 'Productos'},
+        { tipo: 'Servicios'}
+      ],
+      regex: "[A-Za-z0-9 \\s]{0,}",
+      label: "tipo",
     },
-    { name: "cp", disabled: false, type: "text", required: true },
+    { 
+      name: "cp", 
+      disabled: false, 
+      type: "text", 
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
     {
       name: "diasrevicion",
       disabled: false,
-      type: "text",
+      type: "select",
       required: true,
-      dias: ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"],
+      options: [
+        { dia: "Lunes" },
+        { dia: "Martes" },
+        { dia: "Miercoles" },
+        { dia: "Jueves" },
+        { dia: "Viernes" },
+      ],
+      regex: "[A-Za-z0-9 \\s]{0,}",
+      label: "dia",
     },
-    { name: "obser", disabled: false, type: "text", required: true },
+    { 
+      name: "observ", 
+      disabled: false, 
+      type: "text", 
+      required: true ,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
     {
       name: "zona",
       disabled: false,
       type: "select",
       required: true,
       api: "https://kapi-zonas.now.sh/api/zonas",
+      regex: "[A-Za-z0-9 \\s]{0,}",
+      label: "zona",
+      value: "_id",
     },
-    { name: "url", disabled: false, type: "url", required: true },
-    { name: "mail", disabled: false, type: "email", required: true },
-    { name: "saldo", disabled: false, type: "text", required: true },
-    { name: "usuario", disabled: false, type: "text", required: true },
+    { 
+      name: "url",
+      disabled: false,
+      type: "text",
+      required: true,
+      regex: "^(http:\\/\\/www\\.|https:\\/\\/www.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.)?",
+    },
+    { 
+      name: "mail", 
+      disabled: false, 
+      type: "text", 
+      required: true ,
+      regex:
+        "^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)",
+    },
+    { 
+      name: "saldo",
+      disabled: false, 
+      type: "text", 
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}" 
+    },
+    { 
+      name: "usuario", 
+      disabled: false, 
+      type: "text", 
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
     // { name: "usuHora", disabled: false, type: "text", required: true },
     // { name: "usuFech", disabled: false, type: "text", required: true },
   ];
@@ -267,7 +321,7 @@ export default (props) => {
             search={search}
             inputAttrs={atributos}
             id={"proveedores"}
-            api={"https://kapi-proveedores.now.sh/"}
+            api={api_proveedores}
             catalogo="proveedores"
             attrs={attrs}
             subCatalogues={subCatalogues}
