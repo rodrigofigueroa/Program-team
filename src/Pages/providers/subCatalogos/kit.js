@@ -1,20 +1,22 @@
-import { api_contactos } from "../../../utils/apis";
+import { api_kitelementos } from "../../../utils/apis";
+import { api_productos } from "../../../utils/apis";
+import { api_clasificacionclientes } from "../../../utils/apis";
 
-export const contacts = {
+export const kit = {
   component: {
-    api: api_contactos,
-    catalogo: "contactos_clientes_proveedores",
+    api: api_kitelementos,
+    catalogo: "kitelementos",
     attrs: {
       _id: true,
-      uid: true,
-      cliente: true,
-      proveedor: true,
-      nombre: true,
-      puesto: true,
-      email: true,
-      telefono: true,
-      celular: true,
-      f_nacimiento: true,
+      articulo: true,
+      componente: true,
+      cantidad: true,
+      almacen: true,
+      observ: true,
+      idpartida: true,
+      usuario: true,
+      usufecha: true,
+      usuhora: true,
     },
     inputs: [
       {
@@ -25,72 +27,73 @@ export const contacts = {
         regex: "[A-Za-z0-9 \\s]{0,}",
       },
       {
-        name: "uid",
-        disabled: true,
-        type: "text",
-        required: true,
-        regex: "[A-Za-z0-9 \\s]{0,}",
-        label: "clasificacion",
-      },
-      {
-        name: "cliente",
-        disabled: true,
-        type: "text",
-        required: true,
-        regex: "[A-Za-z0-9 \\s]{0,}",
-      },
-      {
-        name: "proveedor",
-        disabled: true,
-        type: "text",
-        required: true,
-        regex: "[A-Za-z0-9 \\s]{0,}",
-      },
-      {
-        name: "nombre",
+        name: "articulo",
         disabled: false,
         type: "text",
         required: true,
-        regex: "[A-Za-z0-9 \\s]{0,}",
+        regex: "[A-Za-z0-9 \\s]{0,}"
       },
       {
-        name: "puesto",
+        name: "componente",
         disabled: false,
-        type: "text",
+        type: "select",
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
+        api: `${api_productos}api/productos`,
+        label : "articulo"
       },
       {
-        name: "email",
-        disabled: false,
-        type: "text",
-        required: true,
-        regex: "[A-Za-z0-9 \\s]{0,}",
-      },
-      {
-        name: "telefono",
+        name: "cantidad",
         disabled: false,
         type: "number",
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
       },
       {
-        name: "celular",
+        name: "almacen",
+        disabled: false,
+        type: "text",
+        required: true,
+        regex: "[A-Za-z0-9 \\s]{0,}",
+      },
+      {
+        name: "observ",
+        disabled: false,
+        type: "text",
+        required: true,
+        regex: "[A-Za-z0-9 \\s]{0,}",
+      },
+      {
+        name: 'idpartida',
         disabled: false,
         type: "number",
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
       },
       {
-        name: "f_nacimiento",
+        name: "usuario",
         disabled: false,
-        type: "date",
+        type: "text",
+        required: true,
+        regex: "[A-Za-z0-9 \\s]{0,}",
+      },
+      {
+        name: "usufecha",
+        disabled: false,
+        type: "text",
+        required: true,
+        regex: "[A-Za-z0-9 \\s]{0,}",
+      },
+      {
+        name: "usuhora",
+        disabled: false,
+        type: "text",
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
       },
     ],
-    id: "clasificacionclientes",
+    id: "kitelementos",
   },
-  title: "Contactos",
+  title: "Kit Elementos",
   selected: false,
 };
