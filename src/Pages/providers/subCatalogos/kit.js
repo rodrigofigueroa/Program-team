@@ -21,7 +21,7 @@ export const kit = {
     inputs: [
       {
         name: "_id",
-        disabled: false,
+        disabled: true,
         type: "text",
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
