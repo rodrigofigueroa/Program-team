@@ -84,10 +84,11 @@ export default (props) => {
               <Table
                 api={view.component.api}
                 catalogo={view.component.catalogo}
-                showEyeButton={false}
-                attrs={view.component.attrs}
-                showTrashButton={false}
                 id={props.idTabs + view.component.id + index}
+                attrs={view.component.attrs}
+                inputAttrs={view.component.inputs}
+                showTrashButton={false}
+                showEyeButton={false}
               />
             </div>
           );
