@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import Header from "../../components/header/Header";
 import { UPDATE_VISIBLE_PRODUCTS } from "../../store/actions/actions.vars";
 import { inputsProductos } from "./subCatologs/inputsProductos";
-import { subCatalogsProductos } from "./subCatologs/inputsProductos";
+import { subCatalogsProductos } from "./subCatologs/subCatalogs";
 import { api_productos } from "../../utils/apis";
 
 export default (props) => {

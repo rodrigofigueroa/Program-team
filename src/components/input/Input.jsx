@@ -46,7 +46,7 @@ export default (props) => {
     } else {
       setDataOptions(options);
     }
-  });
+  },[]);
 
   if (type === "textarea") {
     return (
