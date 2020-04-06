@@ -1,0 +1,61 @@
+export const clasifications = {
+  component: {
+    api: "asd",
+    catalogo: "clasificacionclientes",
+    atributos: {
+      _id: true,
+      clasificacion: true,
+      descrip: true,
+      usuario: true,
+      usufecha: true,
+      usuhora: true,
+    },
+    id: "clasificacionclientes",
+  },
+  title: "Clasificaciones",
+  selected: true,
+  inptus: [
+    {
+      name: "_id",
+      disabled: true,
+      type: "text",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
+    {
+      name: "clasificacion",
+      disabled: true,
+      type: "text",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
+    {
+      name: "descrip",
+      disabled: true,
+      type: "text",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
+    {
+      name: "usuario",
+      disabled: true,
+      type: "text",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
+    {
+      name: "usufecha",
+      disabled: true,
+      type: "text",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
+    {
+      name: "usuhora",
+      disabled: true,
+      type: "text",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
+  ],
+};

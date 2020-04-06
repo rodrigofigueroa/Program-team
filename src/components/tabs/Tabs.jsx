@@ -86,6 +86,7 @@ export default (props) => {
                 catalogo={view.component.catalogo}
                 showEyeButton={false}
                 attrs={view.component.attrs}
+                inputAttrs={view.component.inputs}
                 showTrashButton={false}
                 id={props.idTabs + view.component.id + index}
               />
