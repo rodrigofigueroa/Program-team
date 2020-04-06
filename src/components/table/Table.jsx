@@ -12,8 +12,9 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import Modal from "../modal/Modal";
 import Form from "../form/Form";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Tabs from "../tabs/Tabs";
+import { OPEN_SWAL } from "../../store/actions/actions.vars";
 
 export const Table = (props) => {
   const edit = useSelector((state) => state.data.edit);
@@ -25,6 +26,7 @@ export const Table = (props) => {
     showTrashButton = true,
     inputAttrs = [],
   } = props;
+  const dispatch = useDispatch();
   const [inputFields, setInputFields] = useState([]);
   const [dataTable, setDataTable] = useState([]);
   //useEffect para escuchar el ciclo de vida
@@ -213,7 +215,19 @@ export const Table = (props) => {
                       <span
                         className="text-danger m-1"
                         //dispara la función deleteItem
-                        onClick={() => deleteItem(client._id)}
+                        //onClick={() => deleteItem(client._id)}
+                        onClick={() =>
+                          dispatch({
+                            type: OPEN_SWAL,
+                            payload: {
+                              callback: () => deleteItem(client._id),
+                              title: "Advertencia",
+                              bodyText: `Se Borrara el siguiente ${
+                                props.mainAttr
+                              }: ${client[props.mainAttr]}`,
+                            },
+                          })
+                        }
                       >
                         <i className="fas fa-trash-alt" />
                       </span>

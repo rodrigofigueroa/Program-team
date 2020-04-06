@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 import Header from "../../components/header/Header";
 import { UPDATE_VISIBLE_PRODUCTS } from "../../store/actions/actions.vars";
+
 export default (props) => {
   const attrs = useSelector((state) => state.ui.products);
   const [search, setSearch] = useState("");
@@ -208,6 +209,7 @@ export default (props) => {
             api={"https://kapi-productos.now.sh/"}
             catalogo="productos"
             attrs={attrs}
+            mainAttr="articulo"
             inputAttrs={atributos}
             subCatalogues={subCatalogues}
           />

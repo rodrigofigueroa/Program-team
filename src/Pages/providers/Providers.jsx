@@ -12,109 +12,108 @@ export default (props) => {
   const [searchAttr, setSearchAttr] = useState("_id");
 
   const atributos = [
-    { 
-      name: "_id", 
-      disabled: true, 
-      type: "text", 
+    {
+      name: "_id",
+      disabled: true,
+      type: "text",
       required: true,
       regex: "[A-Za-z0-9 \\s]{0,}",
     },
-    { 
-      name: "proveedor", 
-      disabled: false, 
-      type: "text", 
+    {
+      name: "proveedor",
+      disabled: false,
+      type: "text",
       required: true,
       regex: "[A-Za-z0-9 \\s]{0,}",
     },
-    { 
-      name: "nombre", 
-      disabled: false, 
-      type: "text", 
+    {
+      name: "nombre",
+      disabled: false,
+      type: "text",
       required: true,
       regex: "[A-Za-z0-9 \\s]{0,}",
-
     },
-    { 
-      name: "calle", 
-      disabled: false, 
-      type: "text", 
-      required: true ,
+    {
+      name: "calle",
+      disabled: false,
+      type: "text",
+      required: true,
       regex: "[A-Za-z0-9 \\s]{3,70}",
     },
-    { 
-      name: "colonia", 
-      disabled: false, 
-      type: "select", 
-      required: true ,
-      regex: "[A-Za-z0-9 \\s]{3,25}",
-    },
-    { 
-      name: "pobla", 
-      disabled: false, 
-      type: "select", 
+    {
+      name: "colonia",
+      disabled: false,
+      type: "select",
       required: true,
       regex: "[A-Za-z0-9 \\s]{3,25}",
     },
-    { 
-      name: "ciudad", 
-      disabled: false, 
-      type: "select", 
-      required: true ,
-      regex: "[A-Za-z0-9 \\s]{3,25}",
-    },
-    { 
-      name: "estado", 
-      disabled: false, 
-      type: "select", 
-      required: true ,
-      regex: "[A-Za-z0-9 \\s]{3,25}",
-    },
-    { 
-      name: "pais", 
-      disabled: false, 
-      type: "select", 
+    {
+      name: "pobla",
+      disabled: false,
+      type: "select",
       required: true,
       regex: "[A-Za-z0-9 \\s]{3,25}",
     },
-    { 
-      name: "telefono", 
-      disabled: false, 
-      type: "text", 
+    {
+      name: "ciudad",
+      disabled: false,
+      type: "select",
       required: true,
-      regex: "[0-9]{10,12}", 
+      regex: "[A-Za-z0-9 \\s]{3,25}",
     },
-    { 
-      name: "dias", 
-      disabled: false, 
-      type: "text", 
-      required: true ,
+    {
+      name: "estado",
+      disabled: false,
+      type: "select",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{3,25}",
+    },
+    {
+      name: "pais",
+      disabled: false,
+      type: "select",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{3,25}",
+    },
+    {
+      name: "telefono",
+      disabled: false,
+      type: "text",
+      required: true,
+      regex: "[0-9]{10,12}",
+    },
+    {
+      name: "dias",
+      disabled: false,
+      type: "text",
+      required: true,
       regex: "^([1-9][0-9][0-9][0-9]?|10000)",
     },
-    { 
-      name: "credito", 
-      disabled: false, 
-      type: "text", 
+    {
+      name: "credito",
+      disabled: false,
+      type: "text",
       required: true,
-      regex: "[0-9](?:\\.\\d{1,2})?|100000000", 
+      regex: "[0-9](?:\\.\\d{1,2})?|100000000",
     },
-    { 
-      name: "des1", 
-      disabled: false, 
-      type: "text", 
-      required: true ,
+    {
+      name: "des1",
+      disabled: false,
+      type: "text",
+      required: true,
       regex: "[0-9]?|100",
     },
-    { 
-      name: "contacto", 
-      disabled: false, 
-      type: "text", 
-      required: true 
+    {
+      name: "contacto",
+      disabled: false,
+      type: "text",
+      required: true,
     },
     // { name: "alta", disabled: false, type: "text", required: true },
-    { 
-      name: "rfc", 
-      disabled: false, 
-      type: "text", 
+    {
+      name: "rfc",
+      disabled: false,
+      type: "text",
       required: true,
       regex: "[A-Z0-9]{13,15}",
     },
@@ -268,6 +267,7 @@ export default (props) => {
             inputAttrs={atributos}
             id={"proveedores"}
             api={"https://kapi-proveedores.now.sh/"}
+            mainAttr="proveedor"
             catalogo="proveedores"
             attrs={attrs}
             subCatalogues={subCatalogues}
