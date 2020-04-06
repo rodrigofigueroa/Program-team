@@ -1,0 +1,115 @@
+import { api_clavesadicionales, api_lineas, api_marcas, api_impuestos, api_fabricantes, api_listaprecios } from "../../../utils/apis";
+
+export const subCatalogsProductos = [
+    {
+      component: {
+        api: api_clavesadicionales,
+        catalogo: "clavesadicionales",
+        attrs: {
+          _id: true,
+          clave: true,
+          descripcion: true,
+          usuario: true,
+          usufecha: true,
+          usuhora: true,
+          articulo: true,
+          cantidad: true,
+          unidad: true,
+          existencia: true,
+          precio: true,
+          imagen: true,
+        },
+        id: "clavesadicionales",
+      },
+      title: "Claves Adicionales",
+      selected: true,
+    },
+    {
+      component: {
+        api: api_lineas,
+        catalogo: "lineas",
+        attrs: {
+          _id: true,
+          linea: true,
+          descrip: true,
+          usuario: true,
+          usufecha: true,
+          usuhora: true,
+          numero: true,
+        },
+        id: "lineas",
+      },
+      title: "Lineas",
+      selected: false,
+    },
+    {
+      component: {
+        api: api_marcas,
+        catalogo: "marcas",
+        attrs: {
+          _id: true,
+          marca: true,
+          descrip: true,
+          usuario: true,
+          usufecha: true,
+          usuhora: true,
+          numero: true,
+        },
+        id: "marcas",
+      },
+      title: "Marcas",
+      selected: false,
+    },
+    {
+      component: {
+        api: api_impuestos,
+        catalogo: "impuestos",
+        attrs: {
+          _id: true,
+          impuesto: true,
+          descrip: true,
+          valor: true,
+          usuario: true,
+          usufecha: true,
+          usuhora: true,
+        },
+        id: "impuestos",
+      },
+      title: "Impuestos",
+      selected: false,
+    },
+    {
+      component: {
+        api: api_fabricantes,
+        catalogo: "fabricantes",
+        attrs: {
+          _id: true,
+          fabricante: true,
+          nombre: true,
+          usuario: true,
+          usuhora: true,
+          usufecha: true,
+        },
+        id: "fabricantes",
+      },
+      title: "Fabricantes",
+      selected: false,
+    },
+    {
+      component: {
+        api: api_listaprecios,
+        catalogo: "listaprecios",
+        attrs: {
+          _id: true,
+          id_precio: true,
+          nombre: true,
+          usuario: true,
+          usufecha: true,
+          usuhora: true,
+        },
+        id: "listaprecios",
+      },
+      title: "Lista Precios",
+      selected: false,
+    },
+  ];

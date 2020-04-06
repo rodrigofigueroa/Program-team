@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import Header from "../../components/header/Header";
 import { UPDATE_VISIBLE_PRODUCTS } from "../../store/actions/actions.vars";
 import { inputsProductos } from "./subCatologs/inputsProductos";
-import { subCatalogsProductos } from "./subCatologs/subCatalogs";
+import { subCatalogsProductos } from "./subCatologs/inputsProductos";
+import { api_productos } from "../../utils/apis";
 
 export default (props) => {
   const attrs = useSelector((state) => state.ui.products);
@@ -38,7 +39,7 @@ export default (props) => {
             searchAttr={searchAttr}
             search={search}
             id={"tableProductos"}
-            api={"https://kapi-productos.now.sh/"}
+            api={api_productos}
             catalogo="productos"
             attrs={attrs}
             inputAttrs={inputsProductos}
