@@ -163,8 +163,15 @@ export default (props) => {
       disabled: false,
       type: "select",
       required: true,
-      dias: ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"],
+      options: [
+        { dia: "Lunes" },
+        { dia: "Martes" },
+        { dia: "Miercoles" },
+        { dia: "Jueves" },
+        { dia: "Viernes" },
+      ],
       regex: "[A-Za-z0-9 \\s]{0,}",
+      label: "dia",
     },
     {
       name: "observ",
@@ -362,9 +369,80 @@ export default (props) => {
   const subCatalogues = [
     {
       component: {
+        atributos: [
+          {
+            _id: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+          {
+            uid: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+          {
+            cliente: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+          {
+            proveedor: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+          {
+            nombre: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+          {
+            puesto: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+          {
+            email: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+          {
+            telefono: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+          {
+            celular: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+          {
+            f_nacimiento: "_id",
+            disabled: true,
+            type: "text",
+            required: false,
+            regex: "[A-Za-z0-9 \\s]{0,}",
+          },
+        ],
         api: "https://kapi-contactos-clientes-proveedores.now.sh/",
         catalogo: "contactos_clientes_proveedores",
-
         attrs: {
           _id: true,
           uid: true,
