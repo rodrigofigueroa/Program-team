@@ -1,2 +1,4 @@
 import { clasifications } from "./clasifications";
-export const subCatalogs = [clasifications];
+import { zones } from "./zonas";
+import { vendedores } from "./vendedores";
+export const subCatalogs = [clasifications, vendedores, zones];
