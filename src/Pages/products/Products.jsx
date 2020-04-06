@@ -33,7 +33,7 @@ export default (props) => {
     { name: "serie", disabled: false, type: "text", required: true },
     { name: "lote", disabled: false, type: "text", required: true },
     { name: "invent", disabled: false, type: "text", required: true },
-    { name: "imagen", disabled: false, type: "file", required: true },
+    { name: "imagen", disabled: false, type: "text", required: true },
     { name: "paraventa", disabled: false, type: "text", required: true },
     { name: "usuario", disabled: false, type: "text", required: true },
     // { name: "usuhora", disabled: false, type: "text", required: true },

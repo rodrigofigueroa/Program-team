@@ -250,12 +250,12 @@ export const Table = (props) => {
                         catalogo={"subcatalogos " + props.catalogo}
                         datas={client}
                       >
-                        {/* <Tabs
+                        <Tabs
                           // propaga el id del padre
                           idTabs={props.id + i}
                           // propaga los subcatalogos a las tabs
                           viewsProps={subCatalogues}
-                        /> */}
+                        />
                       </Modal>
                     )}
                   </td>
