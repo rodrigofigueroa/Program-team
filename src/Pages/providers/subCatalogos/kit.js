@@ -40,7 +40,7 @@ export const kit = {
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
         api: `${api_productos}api/productos`,
-        label : "componente"
+        label : "articulo"
       },
       {
         name: "cantidad",
