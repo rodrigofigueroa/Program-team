@@ -54,14 +54,7 @@ export const vendedores = {
         type: "text",
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
-      },
-      {
-        name: "_id",
-        disabled: false,
-        type: "text",
-        required: true,
-        regex: "[A-Za-z0-9 \\s]{0,}",
-      },
+      },     
       {
         name: "createAt",
         disabled: false,
@@ -107,9 +100,7 @@ export const vendedores = {
       {
         name: "usuhora00",
         disabled: false,
-        type: "text",
-        required: true,
-        regex: "[A-Za-z0-9 \\s]{0,}",
+        type: "time", required: true, regex: "[A-Za-z0-9 \\s]{0,}",
       },
       {
         name: "horaentrada00",
@@ -312,7 +303,8 @@ export const vendedores = {
         disabled: false,
         type: "text",
         required: true,
-        regex: "[A-Za-z0-9 \\s]{0,}",
+        regex:
+        "^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)",
       },
       {
         name: "salariodiariointegrado",
