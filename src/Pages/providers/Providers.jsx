@@ -5,16 +5,15 @@ import { useSelector } from "react-redux";
 
 import Header from "../../components/header/Header";
 import { UPDATE_VISIBLE_PROVIDERS } from "../../store/actions/actions.vars";
-import {api_proveedores} from '../../utils/apis';
+import { api_proveedores } from "../../utils/apis";
 
-import { atributos } from './subCatalogos/attributes';
-import { subCatalogs }  from './subCatalogos/subCatalogs';
+import { atributos } from "./subCatalogos/attributes";
+import { subCatalogs } from "./subCatalogos/subCatalogs";
 
 export default (props) => {
   const attrs = useSelector((state) => state.ui.providers);
   const [search, setSearch] = useState("");
   const [searchAttr, setSearchAttr] = useState("_id");
-<<<<<<< HEAD
 
   const atributos = [
     {
@@ -244,8 +243,6 @@ export default (props) => {
     },
   ];
 
-=======
->>>>>>> bf14336c0c18a142682c311a0fc6bbd8d24191b5
   return (
     <div className="container-fluid">
       <div className="row">
