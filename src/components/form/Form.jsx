@@ -40,6 +40,7 @@ export default (props) => {
                       required={input.required}
                       index={index}
                       i={i}
+                      options={input.options}
                       disabled={input.disabled}
                       label={input.label}
                       api={input.api}

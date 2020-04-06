@@ -8,6 +8,7 @@ export default (props) => {
     id,
     disabled,
     label,
+    options,
     value,
     type,
     defaultValue,
@@ -32,14 +33,18 @@ export default (props) => {
   };
   const onErrorRes = (error) => {};
   useEffect(() => {
-    if (type === "select") {
-      fetch(`${api}`, {
-        method: "GET",
-        mode: "cors",
-        //body: JSON.stringify(data)
-      })
-        .then((res) => onCorrectRes(res, setDataOptions))
-        .catch((error) => onErrorRes(error));
+    if (options === undefined) {
+      if (type === "select") {
+        fetch(`${api}`, {
+          method: "GET",
+          mode: "cors",
+          //body: JSON.stringify(data)
+        })
+          .then((res) => onCorrectRes(res, setDataOptions))
+          .catch((error) => onErrorRes(error));
+      }
+    } else {
+      setDataOptions(options);
     }
   });
 
