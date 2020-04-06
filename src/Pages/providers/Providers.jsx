@@ -8,7 +8,7 @@ import { UPDATE_VISIBLE_PROVIDERS } from "../../store/actions/actions.vars";
 import {api_proveedores} from '../../utils/apis';
 
 import { atributos } from './subCatalogos/attributes';
-import { subCatalogues } from './subCatalogos/subCatalogs';
+import { subCatalogs }  from './subCatalogos/subCatalogs';
 
 export default (props) => {
   const attrs = useSelector((state) => state.ui.providers);
@@ -44,7 +44,7 @@ export default (props) => {
             api={api_proveedores}
             catalogo="proveedores"
             attrs={attrs}
-            subCatalogues={subCatalogues}
+            subCatalogues={subCatalogs}
           />
         </div>
       </div>
