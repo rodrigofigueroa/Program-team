@@ -73,31 +73,36 @@ export default (props) => {
       name: "pais", 
       disabled: false, 
       type: "select", 
-      required: true 
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{3,25}",
     },
     { 
       name: "telefono", 
       disabled: false, 
       type: "text", 
-      required: true 
+      required: true,
+      regex: "[0-9]{10,12}", 
     },
     { 
       name: "dias", 
       disabled: false, 
       type: "text", 
-      required: true 
+      required: true ,
+      regex: "^([1-9][0-9][0-9][0-9]?|10000)",
     },
     { 
       name: "credito", 
       disabled: false, 
       type: "text", 
-      required: true 
+      required: true,
+      regex: "[0-9](?:\\.\\d{1,2})?|100000000", 
     },
     { 
       name: "des1", 
       disabled: false, 
       type: "text", 
-      required: true 
+      required: true ,
+      regex: "[0-9]?|100",
     },
     { 
       name: "contacto", 
@@ -106,7 +111,13 @@ export default (props) => {
       required: true 
     },
     // { name: "alta", disabled: false, type: "text", required: true },
-    { name: "rfc", disabled: false, type: "text", required: true },
+    { 
+      name: "rfc", 
+      disabled: false, 
+      type: "text", 
+      required: true,
+      regex: "[A-Z0-9]{13,15}",
+    },
     {
       name: "tipo",
       disabled: false,
