@@ -12,20 +12,99 @@ export default (props) => {
   const [searchAttr, setSearchAttr] = useState("_id");
 
   const atributos = [
-    { name: "_id", disabled: true, type: "text", required: true },
-    { name: "proveedor", disabled: false, type: "text", required: true },
-    { name: "nombre", disabled: false, type: "text", required: true },
-    { name: "calle", disabled: false, type: "text", required: true },
-    { name: "colonia", disabled: false, type: "select", required: true },
-    { name: "pobla", disabled: false, type: "select", required: true },
-    { name: "ciudad", disabled: false, type: "select", required: true },
-    { name: "estado", disabled: false, type: "select", required: true },
-    { name: "pais", disabled: false, type: "select", required: true },
-    { name: "telefono", disabled: false, type: "text", required: true },
-    { name: "dias", disabled: false, type: "text", required: true },
-    { name: "credito", disabled: false, type: "text", required: true },
-    { name: "des1", disabled: false, type: "text", required: true },
-    { name: "contacto", disabled: false, type: "text", required: true },
+    { 
+      name: "_id", 
+      disabled: true, 
+      type: "text", 
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
+    { 
+      name: "proveedor", 
+      disabled: false, 
+      type: "text", 
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
+    { 
+      name: "nombre", 
+      disabled: false, 
+      type: "text", 
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+
+    },
+    { 
+      name: "calle", 
+      disabled: false, 
+      type: "text", 
+      required: true ,
+      regex: "[A-Za-z0-9 \\s]{3,70}",
+    },
+    { 
+      name: "colonia", 
+      disabled: false, 
+      type: "select", 
+      required: true ,
+      regex: "[A-Za-z0-9 \\s]{3,25}",
+    },
+    { 
+      name: "pobla", 
+      disabled: false, 
+      type: "select", 
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{3,25}",
+    },
+    { 
+      name: "ciudad", 
+      disabled: false, 
+      type: "select", 
+      required: true ,
+      regex: "[A-Za-z0-9 \\s]{3,25}",
+    },
+    { 
+      name: "estado", 
+      disabled: false, 
+      type: "select", 
+      required: true ,
+      regex: "[A-Za-z0-9 \\s]{3,25}",
+    },
+    { 
+      name: "pais", 
+      disabled: false, 
+      type: "select", 
+      required: true 
+    },
+    { 
+      name: "telefono", 
+      disabled: false, 
+      type: "text", 
+      required: true 
+    },
+    { 
+      name: "dias", 
+      disabled: false, 
+      type: "text", 
+      required: true 
+    },
+    { 
+      name: "credito", 
+      disabled: false, 
+      type: "text", 
+      required: true 
+    },
+    { 
+      name: "des1", 
+      disabled: false, 
+      type: "text", 
+      required: true 
+    },
+    { 
+      name: "contacto", 
+      disabled: false, 
+      type: "text", 
+      required: true 
+    },
     // { name: "alta", disabled: false, type: "text", required: true },
     { name: "rfc", disabled: false, type: "text", required: true },
     {
