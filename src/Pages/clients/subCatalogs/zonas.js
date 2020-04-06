@@ -1,12 +1,12 @@
-import { api_clasificacionclientes } from "../../../utils/apis";
+import { api_zonas } from "../../../utils/apis";
 
-export const clasifications = {
+export const zones = {
   component: {
-    api: api_clasificacionclientes,
-    catalogo: "clasificacionclientes",
+    api: `${api_zonas}`,
+    catalogo: "zonas",
     attrs: {
       _id: true,
-      clasificacion: true,
+      zona: true,
       descrip: true,
       usuario: true,
       usufecha: true,
@@ -21,13 +21,13 @@ export const clasifications = {
         regex: "[A-Za-z0-9 \\s]{0,}",
       },
       {
-        name: "clasificacion",
+        name: "zona",
         disabled: false,
         type: "select",
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
-        api: `${api_clasificacionclientes}api/clasificacionclientes`,
-        label: "clasificacion",
+        api: `${api_zonas}api/zonas`,
+        label: "zona",
       },
       {
         name: "descrip",
@@ -60,6 +60,6 @@ export const clasifications = {
     ],
     id: "clasificacionclientes",
   },
-  title: "Clasificaciones",
-  selected: true,
+  title: "Zonas",
+  selected: false,
 };
