@@ -7,7 +7,7 @@ export const inputsProductos = [
     { name: "tipo", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,options:[{tipo:"prodcuto"},{tipo:"servicio"}],label:"tipo"},
     { name: "linea", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,api:api_lineas+"api/lineas",label:"linea"},
     { name: "marca", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,api:api_marcas+"api/marcas",label:"marca"},
-    { name: "precio1", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,api:api_listaprecios+"api/lisprecios",label:"marca"},
+    { name: "precio1", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,api:api_listaprecios+"api/listaprecios",label:"marca"},
     { name: "existencia", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "costo_u", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "costo", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
@@ -41,7 +41,10 @@ export const inputsProductos = [
     { name: "autor", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "tema", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "editorial", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
-    { name: "fabricante", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}", api: "https://kapi-fabricantes/api/fabricantes",},
+    { 
+      name: "fabricante", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}", api: "https://kapi-fabricantes.now.sh/api/fabricantes",
+      label: "fabricante"
+    },
     { name: "preciousd", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "costousd", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "claveprodserv", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },

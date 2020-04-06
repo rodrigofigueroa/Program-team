@@ -14,7 +14,7 @@ export const inputsTaxes = {
       usuhora: true,
     },
     inputs: [
-      { name: "_id", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
+      { name: "_id", disabled: true, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "impuesto", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "descrip", disabled: false, type: "textarea", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "valor", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},

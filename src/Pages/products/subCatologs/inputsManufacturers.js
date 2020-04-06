@@ -13,7 +13,7 @@ export const inputsManufacturers = {
       usuhora: true,
     },
     inputs: [
-      { name: "_id", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
+      { name: "_id", disabled: true, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "fabricante", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "nombre", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "usuario", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},

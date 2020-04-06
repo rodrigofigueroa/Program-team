@@ -19,7 +19,7 @@ export const inputsKeysAditionals = {
       imagen: true,
     },
     inputs: [
-      { name: "_id", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
+      { name: "_id", disabled: true, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "clave", disabled: false, type: "number", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "descripcion", disabled: false, type: "textarea", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "usuario", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},

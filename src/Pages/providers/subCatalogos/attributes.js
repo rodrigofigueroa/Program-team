@@ -86,11 +86,10 @@ export const atributos = [
       regex: "[0-9](?:\\.\\d{1,2})?|100000000", 
     },
     { 
-      name: "des1", 
+      name: "desc1", 
       disabled: false, 
-      type: "text", 
-      required: true ,
-      regex: "[0-9]?|100",
+      type: "number", 
+      required: true,
     },
     { 
       name: "contacto", 
@@ -98,7 +97,13 @@ export const atributos = [
       type: "text", 
       required: true 
     },
-    // { name: "alta", disabled: false, type: "text", required: true },
+    { 
+      name: "alta", 
+      disabled: false,
+      type: "date", 
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
     { 
       name: "rfc", 
       disabled: false, 
@@ -126,14 +131,13 @@ export const atributos = [
       regex: "[A-Za-z0-9 \\s]{0,}",
     },
     {
-      name: "diasrevicion",
+      name: "diasrevision",
       disabled: false,
       type: "select",
       required: true,
       options: [
         { dia: "Lunes" },
         { dia: "Martes" },
-        { dia: "Miercoles" },
         { dia: "Jueves" },
         { dia: "Viernes" },
       ],
@@ -186,6 +190,18 @@ export const atributos = [
       required: true,
       regex: "[A-Za-z0-9 \\s]{0,}",
     },
-    // { name: "usuHora", disabled: false, type: "text", required: true },
-    // { name: "usuFech", disabled: false, type: "text", required: true },
+    {
+      name: "usuhora",
+      disabled: false,
+      type: "time",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
+    {
+      name: "usufecha",
+      disabled: false,
+      type: "date",
+      required: true,
+      regex: "[A-Za-z0-9 \\s]{0,}",
+    },
   ];

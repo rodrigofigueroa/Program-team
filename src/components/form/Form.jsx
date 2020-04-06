@@ -17,7 +17,7 @@ export default (props) => {
   //useEffect para escuchar el ciclo de vida
   useEffect(() => {
     setDataForm(datas);
-  }, []);
+  }, [datas]);
   return (
     //define el id del formulario al del padre
     <form id={id} autoComplete="off">

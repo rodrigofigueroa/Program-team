@@ -103,6 +103,8 @@ export default (props) => {
             return auxData.push(item);
           });
           setDataTable(auxData);
+          toggleModal();
+
         } catch (error) {
           console.error(error);
         }
@@ -168,6 +170,7 @@ export default (props) => {
           newData.unshift({ ...data, _id: data.id });
 
           setDataTable(newData);
+          toggleModal();
         } catch (error) {
           console.error(error);
         }
