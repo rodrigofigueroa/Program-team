@@ -1,4 +1,4 @@
-import { api_lineas, api_listaprecios, api_marcas } from "../../../utils/apis";
+import { api_lineas, api_listaprecios, api_marcas, api_fabricantes, api_kitelementos } from "../../../utils/apis";
 
 export const inputsProductos = [
     { name: "_id", disabled: true, type: "text", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
@@ -20,6 +20,7 @@ export const inputsProductos = [
     { name: "observ", disabled: false, type: "textarea", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "costo_std", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "kit", disabled: false, type: "checkbox", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
+    { name: "kit", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,api:api_kitelementos,label:"componente"},
     { name: "serie", disabled: false, type: "checkbox", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "lote", disabled: false, type: "checkbox", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "invent", disabled: false, type: "checkbox", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
@@ -41,7 +42,7 @@ export const inputsProductos = [
     { name: "autor", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "tema", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "editorial", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
-    { name: "fabricante", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}", api: "https://kapi-fabricantes/api/fabricantes",},
+    { name: "fabricante", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}", api: api_fabricantes,},
     { name: "preciousd", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "costousd", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "claveprodserv", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
