@@ -29,6 +29,7 @@ export const CustomAlert = (props) => {
       style={{ display: open ? "flex" : "none" }}
       className={open ? "overlay" : ""}
     >
+      {/* function */}
       <div className="alert__box">
         <div className="alert__title">{title}</div>
         <div className="alert__body">{bodyText}</div>
