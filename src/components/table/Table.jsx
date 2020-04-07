@@ -8,13 +8,14 @@
 /****************************************************/
 // EOF:
 /****************************************************/
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useEffect } from "react";
 import Modal from "../modal/Modal";
 import Form from "../form/Form";
 import { useSelector, useDispatch } from "react-redux";
 import Tabs from "../tabs/Tabs";
 import { OPEN_SWAL } from "../../store/actions/actions.vars";
+import { useLayoutEffect } from "react";
 
 export const Table = (props) => {
   const edit = useSelector((state) => state.data.edit);
@@ -29,10 +30,13 @@ export const Table = (props) => {
   const dispatch = useDispatch();
   const [inputFields, setInputFields] = useState([]);
   const [dataTable, setDataTable] = useState([]);
+  const [update, updateState] = React.useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
   //useEffect para escuchar el ciclo de vida
+
   useEffect(() => {
     loadTableFormApi(api, props.catalogo);
-  }, [props.catalogo, api]);
+  }, [props.catalogo, api, update]);
 
   //useEffect para escuchar el ciclo de vida
   useEffect(() => {
@@ -157,6 +161,7 @@ export const Table = (props) => {
               setDataTable={setDataTable}
               // dataTable es el estado para el contenido de la tabla
               dataTable={dataTable}
+              forceUpdate={forceUpdate}
               // props.id contiene el id heredado del componente padre
               idModal={props.id}
               colorBtn="mx-1 btn btn-success"
@@ -237,6 +242,7 @@ export const Table = (props) => {
                       // propaga el id del padre
                       idModal={props.id + i}
                       // propaga la información de la tabla
+                      forceUpdate={forceUpdate}
                       dataTable={dataTable}
                       // propaga el despachador de la información de la tabla
                       setDataTable={setDataTable}
@@ -264,12 +270,12 @@ export const Table = (props) => {
                         catalogo={"subcatalogos " + props.catalogo}
                         datas={client}
                       >
-                        {/* <Tabs
+                        <Tabs
                           // propaga el id del padre
                           idTabs={props.id + i}
                           // propaga los subcatalogos a las tabs
                           viewsProps={subCatalogues}
-                        /> */}
+                        />
                       </Modal>
                     )}
                   </td>

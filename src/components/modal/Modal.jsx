@@ -9,12 +9,14 @@
 // EOF:
 /****************************************************/
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
+import { OPEN_SWAL } from "../../store/actions/actions.vars";
 
 export default (props) => {
   const {
+    forceUpdate,
     children,
     colorBtn,
     api,
@@ -26,6 +28,7 @@ export default (props) => {
   } = props;
   const modalState = useSelector((state) => state.ui.modal);
   const [typeButton, setTypeButton] = useState(false);
+  const dispatch = useDispatch();
   //useEffect para escuchar el ciclo de vida
   useEffect(() => {
     if (Object.keys(props.datas).length > 1) {
@@ -93,14 +96,17 @@ export default (props) => {
             console.error(error);
           }
           await response.json();
-          newData.map((item) => {
-            if (String(item._id) === String(datas._id)) {
-              item = dataSuplice;
-              item._id = datas._id;
-            }
-            return auxData.push(item);
-          });
-          setDataTable(auxData);
+          forceUpdate();
+          toggleModal();
+          //const force = forceUpdate();
+          // newData.map((item) => {
+          //   if (String(item._id) === String(datas._id)) {
+          //     item = dataSuplice;
+          //     item._id = datas._id;
+          //   }
+          //   return auxData.push(item);
+          // });
+          //setDataTable(auxData);
         } catch (error) {
           console.error(error);
         }
@@ -162,8 +168,10 @@ export default (props) => {
           }
           await response.json();
           alert("Datos agregados correctamente");
-          newData.unshift({ ...data, _id: data.id });
-          setDataTable(newData);
+          forceUpdate();
+          toggleModal();
+          // newData.unshift({ ...data, _id: data.id });
+          // setDataTable(newData);
         } catch (error) {
           console.error(error);
         }
@@ -252,7 +260,17 @@ export default (props) => {
                       type="button"
                       className="btn btn-primary"
                       // dispara la función onUpdate
-                      onClick={() => onUpdate()}
+                      // onClick={() => onUpdate()}
+                      onClick={() =>
+                        dispatch({
+                          type: OPEN_SWAL,
+                          payload: {
+                            title: "Aviso",
+                            bodyText: `se editara el elemento con el id: ${datas._id}`,
+                            callback: onUpdate,
+                          },
+                        })
+                      }
                     >
                       Actualizar
                     </button>
