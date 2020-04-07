@@ -2,7 +2,7 @@ import { api_zonas } from "../../../utils/apis";
 
 export const zones = {
   component: {
-    api: `${api_zonas}`,
+    api: api_zonas,
     catalogo: "zonas",
     attrs: {
       _id: true,
