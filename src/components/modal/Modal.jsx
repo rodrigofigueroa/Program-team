@@ -42,8 +42,11 @@ export default (props) => {
   /****************************************************/
   const onUpdate = () => {
     let form = document.querySelector("form[id=" + props.idModal + "]");
+    let fecha =  new Date();
     let inputs = form.querySelectorAll("input");
     let data = new URLSearchParams();
+    data.usuhora = String(fecha.getHours()+':'+(fecha.getMinutes() < 10 ? '0' + fecha.getMinutes() : fecha.getMinutes() ));
+    data.usufecha = fecha.getFullYear()+'-'+(fecha.getMonth() < 10 ? '0'+ fecha.getMonth() : fecha.getMonth() )+'-'+(fecha.getDate() < 10 ? '0' + fecha.getDate() : fecha.getDate());
     let error = false;
     let dataSuplice = {};
     //recorrido para mapear los inputs
@@ -150,6 +153,9 @@ export default (props) => {
     //validación de repueta del servidor sin error
     if (!error) {
       data.id = catalogo[0] + Math.random().toString(32).slice(2);
+      let fecha =  new Date();
+      data.usuhora = String(fecha.getHours()+':'+(fecha.getMinutes() < 10 ? '0' + fecha.getMinutes() : fecha.getMinutes() ));
+      data.usufecha = fecha.getFullYear()+'-'+(fecha.getMonth() < 10 ? '0'+ fecha.getMonth() : fecha.getMonth() )+'-'+(fecha.getDate() < 10 ? '0' + fecha.getDate() : fecha.getDate());
       (async () => {
         try {
           const response = await fetch(`${api}api/${catalogo}/new`, {
