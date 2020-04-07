@@ -190,18 +190,18 @@ export const atributos = [
       required: true,
       regex: "[A-Za-z0-9 \\s]{0,}",
     },
-    {
-      name: "usuhora",
-      disabled: false,
-      type: "time",
-      required: true,
-      regex: "[A-Za-z0-9 \\s]{0,}",
-    },
-    {
-      name: "usufecha",
-      disabled: false,
-      type: "date",
-      required: true,
-      regex: "[A-Za-z0-9 \\s]{0,}",
-    },
+    // {
+    //   name: "usuhora",
+    //   disabled: false,
+    //   type: "time",
+    //   required: true,
+    //   regex: "[A-Za-z0-9 \\s]{0,}",
+    // },
+    // {
+    //   name: "usufecha",
+    //   disabled: false,
+    //   type: "date",
+    //   required: true,
+    //   regex: "[A-Za-z0-9 \\s]{0,}",
+    // },
   ];
