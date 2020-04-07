@@ -1,6 +1,6 @@
 const initialState = {
   open: false,
-  id: ""
+  id: "",
 };
 export function modalState(state = initialState, action) {
   switch (action.type) {

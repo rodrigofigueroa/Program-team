@@ -42,6 +42,7 @@ export default (props) => {
             api={api_productos}
             catalogo="productos"
             attrs={attrs}
+            mainAttr="articulo"
             inputAttrs={inputsProductos}
             subCatalogues={subCatalogsProductos}
           />
