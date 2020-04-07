@@ -14,7 +14,7 @@ const initialTableState = {
   telefono: false,
   dias: false,
   credito: false,
-  des1: false,
+  desc1: false,
   contacto: false,
   alta: false,
   rfc: false,

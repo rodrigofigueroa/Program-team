@@ -14,7 +14,7 @@ export const inputsLines = {
       numero: true,
     },
     inputs: [
-      { name: "_id", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
+      { name: "_id", disabled: true, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "linea", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "descrip", disabled: false, type: "textarea", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},
       { name: "usuario", disabled: false, type: "text", required: true, regex: "[A-Za-z0-9 \\s]{0,}",},

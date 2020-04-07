@@ -7,7 +7,7 @@ export const inputsProductos = [
     { name: "tipo", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,options:[{tipo:"prodcuto"},{tipo:"servicio"}],label:"tipo"},
     { name: "linea", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,api:api_lineas+"api/lineas",label:"linea"},
     { name: "marca", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,api:api_marcas+"api/marcas",label:"marca"},
-    { name: "precio1", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,api:api_listaprecios+"api/lisprecios",label:"marca"},
+    { name: "precio1", disabled: false, type: "select", required: true,regex:"[A-Za-z0-9 \\s]{0,}" ,api:api_listaprecios+"api/listaprecios",label:"marca"},
     { name: "existencia", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "costo_u", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },
     { name: "costo", disabled: false, type: "number", required: true,regex:"[A-Za-z0-9 \\s]{0,}" },

@@ -1,13 +1,12 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { root } from "./store/reducers/root.reducer";
+import { CustomAlert } from "./components/customAlert/CustomAlert";
 import { Switch, Route } from "react-router-dom";
 import Client from "./Pages/clients/Client";
 import Products from "./Pages/products/Products";
 import Providers from "./Pages/providers/Providers";
 import SideNav from "./components/sideNav/SideNav";
 import Shortcuts from "./components/shortcuts/Shortcuts";
+import { useSelector } from "react-redux";
 const routes = [
   {
     title: "Catalogos",
@@ -60,9 +59,15 @@ const shortcuts = [
 ];
 
 function App() {
-  const store = createStore(root);
+  const swal = useSelector((state) => state.ui.swal);
   return (
-    <Provider store={store}>
+    <>
+      <CustomAlert
+        open={swal.open}
+        title={swal.title}
+        bodyText={swal.bodyText}
+        onAccept={swal.callback}
+      />
       <SideNav routes={routes} />
       <Switch>
         <Route exact path="/">
@@ -92,7 +97,7 @@ function App() {
           <Providers />
         </Route>
       </Switch>
-    </Provider>
+    </>
   );
 }
 

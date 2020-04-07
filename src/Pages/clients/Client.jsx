@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import { Filter } from "../../components/filter/Filter";
 import { Table } from "../../components/table/Table";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Header from "../../components/header/Header";
 import { UPDATE_VISIBLE_COLUMNS } from "../../store/actions/actions.vars";
 import { subCatalogs } from "./subCatalogs/subCatalogs";
 import { atributes } from "./subCatalogs/atributes";
-
-export default (props) => {
+export default () => {
   const attrs = useSelector((state) => state.ui.client);
   const [search, setSearch] = useState("");
   const [searchAttr, setSearchAttr] = useState("_id");
-
+  const dispatch = useDispatch();
   return (
     <div className="container-fluid">
       <div className="row">
@@ -41,6 +40,7 @@ export default (props) => {
             id="tableClients"
             attrs={attrs}
             inputAttrs={atributes}
+            mainAttr="cliente"
             searchAttr={searchAttr}
             search={search}
             subCatalogues={subCatalogs}

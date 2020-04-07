@@ -34,14 +34,14 @@ export const contacts = {
       },
       {
         name: "cliente",
-        disabled: true,
+        disabled: false,
         type: "text",
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
       },
       {
         name: "proveedor",
-        disabled: true,
+        disabled: false,
         type: "text",
         required: true,
         regex: "[A-Za-z0-9 \\s]{0,}",
@@ -63,9 +63,9 @@ export const contacts = {
       {
         name: "email",
         disabled: false,
-        type: "text",
+        type: "email",
         required: true,
-        regex: "[A-Za-z0-9 \\s]{0,}",
+        regex: "^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)",
       },
       {
         name: "telefono",
